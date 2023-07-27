@@ -12,6 +12,7 @@ An App, For Apple Devices, To Help People With A Dissociative Disorder Or Multip
 - View Member Details
 - Export Member Details
 - Home And Lock Screen Widgets
+- watchOS Complications
 - Selecting A Fronting Member
 - Fronting History
 - Custom Reminder Notifications
