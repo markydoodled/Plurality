@@ -1,0 +1,911 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5BB0E232A61293600CFE99F /* PluralityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E222A61293600CFE99F /* PluralityApp.swift */; };
+		D5BB0E252A61293600CFE99F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E242A61293600CFE99F /* ContentView.swift */; };
+		D5BB0E272A61293800CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E262A61293800CFE99F /* Assets.xcassets */; };
+		D5BB0E2A2A61293800CFE99F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E292A61293800CFE99F /* Preview Assets.xcassets */; };
+		D5BB0E2C2A61293800CFE99F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2B2A61293800CFE99F /* Persistence.swift */; };
+		D5BB0E2F2A61293800CFE99F /* Plurality.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2D2A61293800CFE99F /* Plurality.xcdatamodeld */; };
+		D5BB0E3C2A62D11300CFE99F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3B2A62D11300CFE99F /* WidgetKit.framework */; };
+		D5BB0E3E2A62D11300CFE99F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3D2A62D11300CFE99F /* SwiftUI.framework */; };
+		D5BB0E412A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E402A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift */; };
+		D5BB0E432A62D11300CFE99F /* Plurality_iOS_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E422A62D11300CFE99F /* Plurality_iOS_Widget.swift */; };
+		D5BB0E452A62D11500CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E442A62D11500CFE99F /* Assets.xcassets */; };
+		D5BB0E492A62D11500CFE99F /* Plurality iOS WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D5BB0E392A62D11300CFE99F /* Plurality iOS WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5BB0E562A6444E700CFE99F /* Plurality_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E552A6444E700CFE99F /* Plurality_watchOSApp.swift */; };
+		D5BB0E582A6444E700CFE99F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E572A6444E700CFE99F /* ContentView.swift */; };
+		D5BB0E5A2A6444E900CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E592A6444E900CFE99F /* Assets.xcassets */; };
+		D5BB0E5D2A6444E900CFE99F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E5C2A6444E900CFE99F /* Preview Assets.xcassets */; };
+		D5BB0E602A6444E900CFE99F /* Plurality.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5BB0E532A6444E700CFE99F /* Plurality.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5BB0E6A2A64455100CFE99F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3B2A62D11300CFE99F /* WidgetKit.framework */; };
+		D5BB0E6B2A64455100CFE99F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3D2A62D11300CFE99F /* SwiftUI.framework */; };
+		D5BB0E6E2A64455100CFE99F /* Plurality_watchOS_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E6D2A64455100CFE99F /* Plurality_watchOS_Widget.swift */; };
+		D5BB0E702A64455200CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E6F2A64455200CFE99F /* Assets.xcassets */; };
+		D5BB0E742A64455300CFE99F /* Plurality watchOS WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D5BB0E692A64455100CFE99F /* Plurality watchOS WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5BB0E7A2A647C7C00CFE99F /* AppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E792A647C7C00CFE99F /* AppIntents.swift */; };
+		D5BB0E7C2A647CA900CFE99F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E7B2A647CA900CFE99F /* Settings.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5BB0E472A62D11500CFE99F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5BB0E172A61293600CFE99F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5BB0E382A62D11300CFE99F;
+			remoteInfo = "Plurality iOS WidgetExtension";
+		};
+		D5BB0E5E2A6444E900CFE99F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5BB0E172A61293600CFE99F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5BB0E522A6444E700CFE99F;
+			remoteInfo = "Plurality watchOS Watch App";
+		};
+		D5BB0E722A64455300CFE99F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5BB0E172A61293600CFE99F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5BB0E682A64455100CFE99F;
+			remoteInfo = "Plurality watchOS WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D5BB0E4D2A62D11500CFE99F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D5BB0E492A62D11500CFE99F /* Plurality iOS WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E642A6444E900CFE99F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D5BB0E602A6444E900CFE99F /* Plurality.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E782A64455300CFE99F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D5BB0E742A64455300CFE99F /* Plurality watchOS WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D5BB0E1F2A61293600CFE99F /* Plurality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plurality.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BB0E222A61293600CFE99F /* PluralityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluralityApp.swift; sourceTree = "<group>"; };
+		D5BB0E242A61293600CFE99F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D5BB0E262A61293800CFE99F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5BB0E292A61293800CFE99F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D5BB0E2B2A61293800CFE99F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D5BB0E2E2A61293800CFE99F /* Plurality.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Plurality.xcdatamodel; sourceTree = "<group>"; };
+		D5BB0E392A62D11300CFE99F /* Plurality iOS WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Plurality iOS WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BB0E3B2A62D11300CFE99F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D5BB0E3D2A62D11300CFE99F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D5BB0E402A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plurality_iOS_WidgetBundle.swift; sourceTree = "<group>"; };
+		D5BB0E422A62D11300CFE99F /* Plurality_iOS_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plurality_iOS_Widget.swift; sourceTree = "<group>"; };
+		D5BB0E442A62D11500CFE99F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5BB0E462A62D11500CFE99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5BB0E4E2A62D1DA00CFE99F /* Plurality.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Plurality.entitlements; sourceTree = "<group>"; };
+		D5BB0E532A6444E700CFE99F /* Plurality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plurality.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BB0E552A6444E700CFE99F /* Plurality_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plurality_watchOSApp.swift; sourceTree = "<group>"; };
+		D5BB0E572A6444E700CFE99F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D5BB0E592A6444E900CFE99F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5BB0E5C2A6444E900CFE99F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D5BB0E692A64455100CFE99F /* Plurality watchOS WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Plurality watchOS WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5BB0E6D2A64455100CFE99F /* Plurality_watchOS_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plurality_watchOS_Widget.swift; sourceTree = "<group>"; };
+		D5BB0E6F2A64455200CFE99F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5BB0E712A64455300CFE99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5BB0E792A647C7C00CFE99F /* AppIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntents.swift; sourceTree = "<group>"; };
+		D5BB0E7B2A647CA900CFE99F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		D5BB0E7D2A64822E00CFE99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5BB0E1C2A61293600CFE99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E362A62D11300CFE99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E3E2A62D11300CFE99F /* SwiftUI.framework in Frameworks */,
+				D5BB0E3C2A62D11300CFE99F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E502A6444E700CFE99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E662A64455100CFE99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E6B2A64455100CFE99F /* SwiftUI.framework in Frameworks */,
+				D5BB0E6A2A64455100CFE99F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5BB0E162A61293600CFE99F = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E212A61293600CFE99F /* Plurality */,
+				D5BB0E3F2A62D11300CFE99F /* Plurality iOS Widget */,
+				D5BB0E542A6444E700CFE99F /* Plurality watchOS Watch App */,
+				D5BB0E6C2A64455100CFE99F /* Plurality watchOS Widget */,
+				D5BB0E3A2A62D11300CFE99F /* Frameworks */,
+				D5BB0E202A61293600CFE99F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5BB0E202A61293600CFE99F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E1F2A61293600CFE99F /* Plurality.app */,
+				D5BB0E392A62D11300CFE99F /* Plurality iOS WidgetExtension.appex */,
+				D5BB0E532A6444E700CFE99F /* Plurality.app */,
+				D5BB0E692A64455100CFE99F /* Plurality watchOS WidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5BB0E212A61293600CFE99F /* Plurality */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E7D2A64822E00CFE99F /* Info.plist */,
+				D5BB0E4E2A62D1DA00CFE99F /* Plurality.entitlements */,
+				D5BB0E222A61293600CFE99F /* PluralityApp.swift */,
+				D5BB0E242A61293600CFE99F /* ContentView.swift */,
+				D5BB0E262A61293800CFE99F /* Assets.xcassets */,
+				D5BB0E2B2A61293800CFE99F /* Persistence.swift */,
+				D5BB0E2D2A61293800CFE99F /* Plurality.xcdatamodeld */,
+				D5BB0E282A61293800CFE99F /* Preview Content */,
+				D5BB0E792A647C7C00CFE99F /* AppIntents.swift */,
+				D5BB0E7B2A647CA900CFE99F /* Settings.bundle */,
+			);
+			path = Plurality;
+			sourceTree = "<group>";
+		};
+		D5BB0E282A61293800CFE99F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E292A61293800CFE99F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D5BB0E3A2A62D11300CFE99F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E3B2A62D11300CFE99F /* WidgetKit.framework */,
+				D5BB0E3D2A62D11300CFE99F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5BB0E3F2A62D11300CFE99F /* Plurality iOS Widget */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E402A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift */,
+				D5BB0E422A62D11300CFE99F /* Plurality_iOS_Widget.swift */,
+				D5BB0E442A62D11500CFE99F /* Assets.xcassets */,
+				D5BB0E462A62D11500CFE99F /* Info.plist */,
+			);
+			path = "Plurality iOS Widget";
+			sourceTree = "<group>";
+		};
+		D5BB0E542A6444E700CFE99F /* Plurality watchOS Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E552A6444E700CFE99F /* Plurality_watchOSApp.swift */,
+				D5BB0E572A6444E700CFE99F /* ContentView.swift */,
+				D5BB0E592A6444E900CFE99F /* Assets.xcassets */,
+				D5BB0E5B2A6444E900CFE99F /* Preview Content */,
+			);
+			path = "Plurality watchOS Watch App";
+			sourceTree = "<group>";
+		};
+		D5BB0E5B2A6444E900CFE99F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E5C2A6444E900CFE99F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D5BB0E6C2A64455100CFE99F /* Plurality watchOS Widget */ = {
+			isa = PBXGroup;
+			children = (
+				D5BB0E6D2A64455100CFE99F /* Plurality_watchOS_Widget.swift */,
+				D5BB0E6F2A64455200CFE99F /* Assets.xcassets */,
+				D5BB0E712A64455300CFE99F /* Info.plist */,
+			);
+			path = "Plurality watchOS Widget";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5BB0E1E2A61293600CFE99F /* Plurality */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5BB0E322A61293800CFE99F /* Build configuration list for PBXNativeTarget "Plurality" */;
+			buildPhases = (
+				D5BB0E1B2A61293600CFE99F /* Sources */,
+				D5BB0E1C2A61293600CFE99F /* Frameworks */,
+				D5BB0E1D2A61293600CFE99F /* Resources */,
+				D5BB0E4D2A62D11500CFE99F /* Embed Foundation Extensions */,
+				D5BB0E642A6444E900CFE99F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5BB0E482A62D11500CFE99F /* PBXTargetDependency */,
+				D5BB0E5F2A6444E900CFE99F /* PBXTargetDependency */,
+			);
+			name = Plurality;
+			productName = Plurality;
+			productReference = D5BB0E1F2A61293600CFE99F /* Plurality.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5BB0E382A62D11300CFE99F /* Plurality iOS WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5BB0E4A2A62D11500CFE99F /* Build configuration list for PBXNativeTarget "Plurality iOS WidgetExtension" */;
+			buildPhases = (
+				D5BB0E352A62D11300CFE99F /* Sources */,
+				D5BB0E362A62D11300CFE99F /* Frameworks */,
+				D5BB0E372A62D11300CFE99F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Plurality iOS WidgetExtension";
+			productName = "Plurality iOS WidgetExtension";
+			productReference = D5BB0E392A62D11300CFE99F /* Plurality iOS WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		D5BB0E522A6444E700CFE99F /* Plurality watchOS Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5BB0E612A6444E900CFE99F /* Build configuration list for PBXNativeTarget "Plurality watchOS Watch App" */;
+			buildPhases = (
+				D5BB0E4F2A6444E700CFE99F /* Sources */,
+				D5BB0E502A6444E700CFE99F /* Frameworks */,
+				D5BB0E512A6444E700CFE99F /* Resources */,
+				D5BB0E782A64455300CFE99F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5BB0E732A64455300CFE99F /* PBXTargetDependency */,
+			);
+			name = "Plurality watchOS Watch App";
+			productName = "Plurality watchOS Watch App";
+			productReference = D5BB0E532A6444E700CFE99F /* Plurality.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5BB0E682A64455100CFE99F /* Plurality watchOS WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5BB0E752A64455300CFE99F /* Build configuration list for PBXNativeTarget "Plurality watchOS WidgetExtension" */;
+			buildPhases = (
+				D5BB0E652A64455100CFE99F /* Sources */,
+				D5BB0E662A64455100CFE99F /* Frameworks */,
+				D5BB0E672A64455100CFE99F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Plurality watchOS WidgetExtension";
+			productName = "Plurality watchOS WidgetExtension";
+			productReference = D5BB0E692A64455100CFE99F /* Plurality watchOS WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5BB0E172A61293600CFE99F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D5BB0E1E2A61293600CFE99F = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					D5BB0E382A62D11300CFE99F = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					D5BB0E522A6444E700CFE99F = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					D5BB0E682A64455100CFE99F = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = D5BB0E1A2A61293600CFE99F /* Build configuration list for PBXProject "Plurality" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5BB0E162A61293600CFE99F;
+			productRefGroup = D5BB0E202A61293600CFE99F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5BB0E1E2A61293600CFE99F /* Plurality */,
+				D5BB0E382A62D11300CFE99F /* Plurality iOS WidgetExtension */,
+				D5BB0E522A6444E700CFE99F /* Plurality watchOS Watch App */,
+				D5BB0E682A64455100CFE99F /* Plurality watchOS WidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5BB0E1D2A61293600CFE99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E2A2A61293800CFE99F /* Preview Assets.xcassets in Resources */,
+				D5BB0E7C2A647CA900CFE99F /* Settings.bundle in Resources */,
+				D5BB0E272A61293800CFE99F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E372A62D11300CFE99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E452A62D11500CFE99F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E512A6444E700CFE99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E5D2A6444E900CFE99F /* Preview Assets.xcassets in Resources */,
+				D5BB0E5A2A6444E900CFE99F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E672A64455100CFE99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E702A64455200CFE99F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5BB0E1B2A61293600CFE99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E2F2A61293800CFE99F /* Plurality.xcdatamodeld in Sources */,
+				D5BB0E7A2A647C7C00CFE99F /* AppIntents.swift in Sources */,
+				D5BB0E2C2A61293800CFE99F /* Persistence.swift in Sources */,
+				D5BB0E252A61293600CFE99F /* ContentView.swift in Sources */,
+				D5BB0E232A61293600CFE99F /* PluralityApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E352A62D11300CFE99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E432A62D11300CFE99F /* Plurality_iOS_Widget.swift in Sources */,
+				D5BB0E412A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E4F2A6444E700CFE99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E582A6444E700CFE99F /* ContentView.swift in Sources */,
+				D5BB0E562A6444E700CFE99F /* Plurality_watchOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5BB0E652A64455100CFE99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BB0E6E2A64455100CFE99F /* Plurality_watchOS_Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5BB0E482A62D11500CFE99F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5BB0E382A62D11300CFE99F /* Plurality iOS WidgetExtension */;
+			targetProxy = D5BB0E472A62D11500CFE99F /* PBXContainerItemProxy */;
+		};
+		D5BB0E5F2A6444E900CFE99F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5BB0E522A6444E700CFE99F /* Plurality watchOS Watch App */;
+			targetProxy = D5BB0E5E2A6444E900CFE99F /* PBXContainerItemProxy */;
+		};
+		D5BB0E732A64455300CFE99F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5BB0E682A64455100CFE99F /* Plurality watchOS WidgetExtension */;
+			targetProxy = D5BB0E722A64455300CFE99F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D5BB0E302A61293800CFE99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		D5BB0E312A61293800CFE99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		D5BB0E332A61293800CFE99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Plurality/Plurality.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Plurality/Preview Content\"";
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Plurality/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need To Unlock Your Data.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MSJ.Plurality;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5BB0E342A61293800CFE99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Plurality/Plurality.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Plurality/Preview Content\"";
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Plurality/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need To Unlock Your Data.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MSJ.Plurality;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D5BB0E4B2A62D11500CFE99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Plurality iOS Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Plurality;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MSJ.Plurality.Plurality-iOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5BB0E4C2A62D11500CFE99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Plurality iOS Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Plurality;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MSJ.Plurality.Plurality-iOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D5BB0E622A6444E900CFE99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Plurality watchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.MSJ.Plurality;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MSJ.Plurality.watchkitapp;
+				PRODUCT_NAME = Plurality;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		D5BB0E632A6444E900CFE99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Plurality watchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.MSJ.Plurality;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MSJ.Plurality.watchkitapp;
+				PRODUCT_NAME = Plurality;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		D5BB0E762A64455300CFE99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Plurality watchOS Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Plurality;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MSJ.Plurality.watchkitapp.Plurality-watchOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		D5BB0E772A64455300CFE99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Plurality watchOS Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Plurality;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MSJ.Plurality.watchkitapp.Plurality-watchOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5BB0E1A2A61293600CFE99F /* Build configuration list for PBXProject "Plurality" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5BB0E302A61293800CFE99F /* Debug */,
+				D5BB0E312A61293800CFE99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5BB0E322A61293800CFE99F /* Build configuration list for PBXNativeTarget "Plurality" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5BB0E332A61293800CFE99F /* Debug */,
+				D5BB0E342A61293800CFE99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5BB0E4A2A62D11500CFE99F /* Build configuration list for PBXNativeTarget "Plurality iOS WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5BB0E4B2A62D11500CFE99F /* Debug */,
+				D5BB0E4C2A62D11500CFE99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5BB0E612A6444E900CFE99F /* Build configuration list for PBXNativeTarget "Plurality watchOS Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5BB0E622A6444E900CFE99F /* Debug */,
+				D5BB0E632A6444E900CFE99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5BB0E752A64455300CFE99F /* Build configuration list for PBXNativeTarget "Plurality watchOS WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5BB0E762A64455300CFE99F /* Debug */,
+				D5BB0E772A64455300CFE99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D5BB0E2D2A61293800CFE99F /* Plurality.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D5BB0E2E2A61293800CFE99F /* Plurality.xcdatamodel */,
+			);
+			currentVersion = D5BB0E2E2A61293800CFE99F /* Plurality.xcdatamodel */;
+			path = Plurality.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D5BB0E172A61293600CFE99F /* Project object */;
+}
