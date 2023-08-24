@@ -31,6 +31,13 @@
 		D5BB0E742A64455300CFE99F /* Plurality watchOS WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D5BB0E692A64455100CFE99F /* Plurality watchOS WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5BB0E7A2A647C7C00CFE99F /* AppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E792A647C7C00CFE99F /* AppIntents.swift */; };
 		D5BB0E7C2A647CA900CFE99F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E7B2A647CA900CFE99F /* Settings.bundle */; };
+		D5EE00012A961EDE002C5FED /* Plurality.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2D2A61293800CFE99F /* Plurality.xcdatamodeld */; };
+		D5EE00022A961EDE002C5FED /* Plurality.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2D2A61293800CFE99F /* Plurality.xcdatamodeld */; };
+		D5EE00032A961EDF002C5FED /* Plurality.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2D2A61293800CFE99F /* Plurality.xcdatamodeld */; };
+		D5EE00072A961F17002C5FED /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2B2A61293800CFE99F /* Persistence.swift */; };
+		D5EE00082A961F18002C5FED /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2B2A61293800CFE99F /* Persistence.swift */; };
+		D5EE00092A961F18002C5FED /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E2B2A61293800CFE99F /* Persistence.swift */; };
+		D5EE000C2A980506002C5FED /* WatchDatePicker in Frameworks */ = {isa = PBXBuildFile; productRef = D5EE000B2A980506002C5FED /* WatchDatePicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +128,9 @@
 		D5BB0E792A647C7C00CFE99F /* AppIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntents.swift; sourceTree = "<group>"; };
 		D5BB0E7B2A647CA900CFE99F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D5BB0E7D2A64822E00CFE99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D5EE00002A961E53002C5FED /* Plurality watchOS WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plurality watchOS WidgetExtension.entitlements"; sourceTree = "<group>"; };
+		D5EEFFFE2A961E24002C5FED /* Plurality watchOS Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plurality watchOS Watch App.entitlements"; sourceTree = "<group>"; };
+		D5EEFFFF2A961E3C002C5FED /* Plurality iOS WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plurality iOS WidgetExtension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5EE000C2A980506002C5FED /* WatchDatePicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +173,8 @@
 		D5BB0E162A61293600CFE99F = {
 			isa = PBXGroup;
 			children = (
+				D5EE00002A961E53002C5FED /* Plurality watchOS WidgetExtension.entitlements */,
+				D5EEFFFF2A961E3C002C5FED /* Plurality iOS WidgetExtension.entitlements */,
 				D5BB0E212A61293600CFE99F /* Plurality */,
 				D5BB0E3F2A62D11300CFE99F /* Plurality iOS Widget */,
 				D5BB0E542A6444E700CFE99F /* Plurality watchOS Watch App */,
@@ -230,6 +243,7 @@
 		D5BB0E542A6444E700CFE99F /* Plurality watchOS Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				D5EEFFFE2A961E24002C5FED /* Plurality watchOS Watch App.entitlements */,
 				D5BB0E552A6444E700CFE99F /* Plurality_watchOSApp.swift */,
 				D5BB0E572A6444E700CFE99F /* ContentView.swift */,
 				D5BB0E592A6444E900CFE99F /* Assets.xcassets */,
@@ -312,6 +326,9 @@
 				D5BB0E732A64455300CFE99F /* PBXTargetDependency */,
 			);
 			name = "Plurality watchOS Watch App";
+			packageProductDependencies = (
+				D5EE000B2A980506002C5FED /* WatchDatePicker */,
+			);
 			productName = "Plurality watchOS Watch App";
 			productReference = D5BB0E532A6444E700CFE99F /* Plurality.app */;
 			productType = "com.apple.product-type.application";
@@ -366,6 +383,9 @@
 				Base,
 			);
 			mainGroup = D5BB0E162A61293600CFE99F;
+			packageReferences = (
+				D5EE000A2A980506002C5FED /* XCRemoteSwiftPackageReference "watch-date-picker" */,
+			);
 			productRefGroup = D5BB0E202A61293600CFE99F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -434,6 +454,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5BB0E432A62D11300CFE99F /* Plurality_iOS_Widget.swift in Sources */,
+				D5EE00072A961F17002C5FED /* Persistence.swift in Sources */,
+				D5EE00012A961EDE002C5FED /* Plurality.xcdatamodeld in Sources */,
 				D5BB0E412A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +465,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5BB0E582A6444E700CFE99F /* ContentView.swift in Sources */,
+				D5EE00092A961F18002C5FED /* Persistence.swift in Sources */,
+				D5EE00022A961EDE002C5FED /* Plurality.xcdatamodeld in Sources */,
 				D5BB0E562A6444E700CFE99F /* Plurality_watchOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +475,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5EE00082A961F18002C5FED /* Persistence.swift in Sources */,
+				D5EE00032A961EDF002C5FED /* Plurality.xcdatamodeld in Sources */,
 				D5BB0E6E2A64455100CFE99F /* Plurality_watchOS_Widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +699,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Plurality iOS WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZWASU9HFBU;
@@ -701,6 +728,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Plurality iOS WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZWASU9HFBU;
@@ -730,6 +758,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Plurality watchOS Watch App/Plurality watchOS Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plurality watchOS Watch App/Preview Content\"";
@@ -760,6 +789,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Plurality watchOS Watch App/Plurality watchOS Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plurality watchOS Watch App/Preview Content\"";
@@ -789,6 +819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Plurality watchOS WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZWASU9HFBU;
@@ -819,6 +850,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Plurality watchOS WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZWASU9HFBU;
@@ -893,6 +925,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D5EE000A2A980506002C5FED /* XCRemoteSwiftPackageReference "watch-date-picker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/freyaalminde/watch-date-picker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D5EE000B2A980506002C5FED /* WatchDatePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5EE000A2A980506002C5FED /* XCRemoteSwiftPackageReference "watch-date-picker" */;
+			productName = WatchDatePicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D5BB0E2D2A61293800CFE99F /* Plurality.xcdatamodeld */ = {

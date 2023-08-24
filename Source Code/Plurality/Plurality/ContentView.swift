@@ -29,7 +29,7 @@ struct ContentView: View {
     @State var addNewAlterDisabled = true
     @State var searchMembersText = ""
     @State var searchHistoryText = ""
-    @State var openedViewName: String?
+    //@State var openedViewName: String?
     @State var isMembersGroupExpanded = true
     
     //Custom Notification UI Storage
