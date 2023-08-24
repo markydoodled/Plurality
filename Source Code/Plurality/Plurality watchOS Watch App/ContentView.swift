@@ -145,6 +145,7 @@ struct ContentView: View {
                 }
             }
         }
+        .privacySensitive()
     }
     
     //Fronting History View
@@ -174,6 +175,7 @@ struct ContentView: View {
         }
         .listStyle(.automatic)
         .navigationTitle("History")
+        .privacySensitive()
     }
     
     //More Options View
@@ -366,6 +368,7 @@ struct ContentView: View {
                 addNewAlterDisabled = false
             }
         }
+        .privacySensitive()
     }
     
     //Details For A Member From The Database
@@ -461,6 +464,7 @@ struct ContentView: View {
             }
         }
         .navigationTitle("\(alterDetailsName)")
+        .privacySensitive()
     }
     
     //Add A New Member To The Members Database
