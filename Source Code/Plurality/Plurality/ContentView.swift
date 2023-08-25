@@ -8,7 +8,9 @@
 import SwiftUI
 import CoreData
 import UserNotifications
+#if os(iOS)
 import MessageUI
+#endif
 import LocalAuthentication
 import PhotosUI
 
@@ -21,7 +23,9 @@ struct ContentView: View {
     private var frontHistory: FetchedResults<Fronting>
     
     //UI Control Variables
+    #if os(iOS)
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
     @State var tabSelection = 1
     @State var showingSettings = false
     @State var showingNewAlter = false
@@ -73,10 +77,13 @@ struct ContentView: View {
     @State var alterDetailsNotes = ""
     @State var alterDetailsAvatarImageData = Data()
     
+    #if os(iOS)
     //Mail Feedback View Triggers And Return Result
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
+    #endif
     var body: some View {
+        #if os(iOS)
         if horizontalSizeClass == .regular {
             if isUnlocked == true {
                 NavigationSplitView {
@@ -249,8 +256,134 @@ struct ContentView: View {
                 }
             }
         }
+        #else
+        if isUnlocked == true {
+            NavigationSplitView {
+                List {
+                    DisclosureGroup(isExpanded: $isMembersGroupExpanded) {
+                        ForEach(items) { item in
+                            NavigationLink {
+                                alterDetails
+                                    .onAppear() {
+                                        alterDetailsName = item.name ?? "None"
+                                        alterDetailsAge = item.age
+                                        alterDetailsBirthday = item.birthday?.formatted(date: .long, time: .omitted) ?? Date().formatted(date: .long, time: .omitted)
+                                        alterDetailsDescription = item.desc ?? "None"
+                                        alterDetailsRole = item.role ?? "None"
+                                        alterDetailsLikes = item.likes ?? "None"
+                                        alterDetailsDislikes = item.dislikes ?? "None"
+                                        alterDetailsGender = item.gender ?? "None"
+                                        alterDetailsPronouns = item.pronouns ?? "None"
+                                        alterDetailsSexuality = item.sexuality ?? "None"
+                                        alterDetailsFavouriteFood = item.food ?? "None"
+                                        alterDetailsHobbies = item.hobbies ?? "None"
+                                        alterDetailsNotes = item.notes ?? "None"
+                                        alterDetailsAvatarImageData = item.avatar ?? Data()
+                                    }
+                                    .id(item.id)
+                            } label: {
+                                HStack {
+                                    /*Image("\(item.avatar)")
+                                        .resizable()
+                                        .clipShape(Circle())
+                                        .frame(width: 50, height: 50)
+                                        .padding(.trailing)
+                                        .scaledToFill()*/
+                                    Circle()
+                                        .foregroundColor(.secondary)
+                                        .frame(width: 50, height: 50)
+                                        .padding(.trailing)
+                                    VStack(alignment: .leading) {
+                                        Text("\(item.name ?? "None")")
+                                            .bold()
+                                            .font(.title3)
+                                        if item.pronouns != "" {
+                                            Text("\(item.pronouns ?? "None")")
+                                                .foregroundColor(.secondary)
+                                        }
+                                    }
+                                    Spacer()
+                                }
+                            }
+                            .contextMenu {
+                                Button(action: {}) {
+                                    Label("Set As Front", systemImage: "person")
+                                }
+                                Button(action: {}) {
+                                    Label("Add To Front", systemImage: "person.2")
+                                }
+                            }
+                            .searchable(text: $searchMembersText, placement: .sidebar, prompt: Text("Search For Members..."))
+                        }
+                        .onDelete(perform: deleteItems)
+                    } label: {
+                        Label("Members", systemImage: "person.3")
+                    }
+                    NavigationLink(destination: history) {
+                        Label("History", systemImage: "clock")
+                    }
+                    NavigationLink(destination: appNotifications) {
+                        Label("App Notifictions", systemImage: "app.badge")
+                    }
+                    DisclosureGroup {
+                        //Link("Childline", destination: URL(string: "https://www.childline.org.uk/")!)
+                    } label: {
+                        Label("Useful Links", systemImage: "link")
+                    }
+                }
+                .listStyle(.sidebar)
+                .navigationTitle("Plurality")
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Menu {
+                            Button(action: {showingNewAlter = true}) {
+                                Label("New Member", systemImage: "plus")
+                            }
+                            Button(action: {showingSettings = true}) {
+                                Label("Settings", systemImage: "gearshape")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
+                        .sheet(isPresented: $showingNewAlter) {
+                            NavigationStack {
+                                newAlter
+                            }
+                        }
+                        .sheet(isPresented: $showingSettings) {
+                            NavigationStack {
+                                settings
+                            }
+                        }
+                    }
+                }
+            } detail: {
+                VStack {
+                    Image("AppsIcon")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .cornerRadius(25)
+                    Text("Plurality")
+                        .bold()
+                        .font(.title2)
+                }
+            }
+        } else {
+            VStack {
+                Text("App Locked")
+                    .font(.title2)
+                    .padding(.bottom)
+                Button(action: {authenticate()}) {
+                    Label("Unlock App", systemImage: "lock.open")
+                        .font(.title2)
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        }
+        #endif
     }
     
+    #if os(iOS)
     //Members Main View
     var members: some View {
         List {
@@ -328,6 +461,7 @@ struct ContentView: View {
             }
         }
     }
+    #endif
     
     //Fronting History View
     var history: some View {
@@ -351,18 +485,29 @@ struct ContentView: View {
                         Spacer()
                     }
                 }
+                #if os(iOS)
                 .searchable(text: $searchHistoryText, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Search For Fronts..."))
+                #else
+                .searchable(text: $searchHistoryText, placement: .toolbar, prompt: Text("Search For Fronts..."))
+                #endif
             }
         }
+        #if os(iOS)
         .listStyle(.insetGrouped)
+        #else
+        .listStyle(.inset(alternatesRowBackgrounds: true))
+        #endif
         .navigationTitle("History")
+        #if os(iOS)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 EditButton()
             }
         }
+        #endif
     }
     
+    #if os(iOS)
     //iOS Compact More Screen
     var more: some View {
         Form {
@@ -397,6 +542,7 @@ struct ContentView: View {
             }
         }
     }
+    #endif
     
     //App Settings View
     var settings: some View {
@@ -430,6 +576,7 @@ struct ContentView: View {
             Section {
                 LabeledContent("Version", value: "1.0")
                 LabeledContent("Build", value: "1")
+                #if os(iOS)
                 Button(action: {self.isShowingMailView.toggle()}) {
                     Text("Send Feedback...")
                 }
@@ -439,11 +586,13 @@ struct ContentView: View {
                 Button(action: {UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)}) {
                     Text("Open Settings App...")
                 }
+                #endif
             } header: {
                 Label("Misc.", systemImage: "ellipsis.circle")
             }
         }
         .navigationTitle("Settings")
+        #if os(iOS)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {showingSettings = false}) {
@@ -451,6 +600,7 @@ struct ContentView: View {
                 }
             }
         }
+        #endif
     }
     
     //UI To Add A New Member Data
@@ -505,6 +655,7 @@ struct ContentView: View {
             }
         }
         .navigationTitle("New Alter")
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -556,6 +707,8 @@ struct ContentView: View {
                 .disabled(addNewAlterDisabled)
             }
         }
+        #endif
+        #if os(iOS)
         .onChange(of: avatarItem) { _ in
             Task {
                 if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
@@ -567,6 +720,19 @@ struct ContentView: View {
                 print("Failed")
             }
         }
+        #else
+        .onChange(of: avatarItem) { _ in
+            Task {
+                if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
+                    if let nsImage = NSImage(data: data) {
+                        avatarImage = Image(nsImage: nsImage)
+                        return
+                    }
+                }
+                print("Failed")
+            }
+        }
+        #endif
         .onAppear() {
             if newAlterName == "" {
                 addNewAlterDisabled = true
@@ -676,14 +842,28 @@ struct ContentView: View {
         }
         .navigationTitle("\(alterDetailsName)")
         .toolbar {
+            #if os(iOS)
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {}) {
                     Image(systemName: "slider.horizontal.3")
                 }
             }
+            #else
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {}) {
+                    Image(systemName: "slider.horizontal.3")
+                }
+            }
+            #endif
+            #if os(iOS)
             ToolbarItem(placement: .navigationBarTrailing) {
                 ShareLink(item: URL(string: "/")!, subject: Text("Exported Alter"), message: Text("Information About An Alter"))
             }
+            #else
+            ToolbarItem(placement: .primaryAction) {
+                ShareLink(item: URL(string: "/")!, subject: Text("Exported Alter"), message: Text("Information About An Alter"))
+            }
+            #endif
         }
     }
     
@@ -802,6 +982,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+#if os(iOS)
 //Feedback Mail View
 struct MailView: UIViewControllerRepresentable {
     @Binding var isShowing: Bool
@@ -845,3 +1026,4 @@ struct MailView: UIViewControllerRepresentable {
         
     }
 }
+#endif
