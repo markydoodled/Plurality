@@ -359,7 +359,7 @@ struct ContentView: View {
                 }
             } detail: {
                 VStack {
-                    Image("AppsIcon")
+                    Image("AppsIconMac")
                         .resizable()
                         .frame(width: 150, height: 150)
                         .cornerRadius(25)
