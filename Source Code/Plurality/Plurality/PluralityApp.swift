@@ -23,6 +23,11 @@ struct PluralityApp: App {
             SettingsView()
                 .frame(width: 300, height: 300)
         }
+        Window("New Member", id: "new-member") {
+            NewMemberView()
+                .frame(minWidth: 900, minHeight: 600)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
         #endif
     }
 }

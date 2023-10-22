@@ -23,12 +23,15 @@ struct ContentView: View {
     private var frontHistory: FetchedResults<Fronting>
     
     //UI Control Variables
+    #if os(macOS)
+    @Environment(\.openWindow) private var openWindow
+    #endif
     #if os(iOS)
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    #endif
     @State var tabSelection = 1
     @State var showingSettings = false
     @State var showingNewAlter = false
+    #endif
     @State var isUnlocked = false
     @State var addNewAlterDisabled = true
     @State var searchMembersText = ""
@@ -145,7 +148,7 @@ struct ContentView: View {
                             }
                             .onDelete(perform: deleteItems)
                         } label: {
-                            Label("Members", systemImage: "person.3")
+                            Label("Members", systemImage: "person.2")
                         }
                         NavigationLink(destination: history) {
                             Label("History", systemImage: "clock")
@@ -218,7 +221,7 @@ struct ContentView: View {
                         members
                     }
                     .tabItem {
-                        Image(systemName: "person.3")
+                        Image(systemName: "person.2")
                         Text("Members")
                     }
                     .tag(1)
@@ -307,18 +310,18 @@ struct ContentView: View {
                             }
                             .contextMenu {
                                 Button(action: {}) {
-                                    Label("Set As Front", systemImage: "person")
+                                    Text("Set As Front")
                                 }
                                 Button(action: {}) {
-                                    Label("Add To Front", systemImage: "person.2")
+                                    Text("Add To Front")
                                 }
                             }
-                            .searchable(text: $searchMembersText, placement: .sidebar, prompt: Text("Search For Members..."))
                         }
                         .onDelete(perform: deleteItems)
                     } label: {
-                        Label("Members", systemImage: "person.3")
+                        Label("Members", systemImage: "person.2")
                     }
+                    
                     NavigationLink(destination: history) {
                         Label("History", systemImage: "clock")
                     }
@@ -333,30 +336,8 @@ struct ContentView: View {
                 }
                 .listStyle(.sidebar)
                 .navigationTitle("Plurality")
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Menu {
-                            Button(action: {showingNewAlter = true}) {
-                                Label("New Member", systemImage: "plus")
-                            }
-                            Button(action: {showingSettings = true}) {
-                                Label("Settings", systemImage: "gearshape")
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis.circle")
-                        }
-                        .sheet(isPresented: $showingNewAlter) {
-                            NavigationStack {
-                                newAlter
-                            }
-                        }
-                        .sheet(isPresented: $showingSettings) {
-                            NavigationStack {
-                                settings
-                            }
-                        }
-                    }
-                }
+                .frame(minWidth: 230)
+                .searchable(text: $searchMembersText, placement: .sidebar, prompt: Text("Search For Members..."))
             } detail: {
                 VStack {
                     Image("AppsIconMac")
@@ -367,6 +348,13 @@ struct ContentView: View {
                         .bold()
                         .font(.title2)
                 }
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button(action: {openWindow(id: "new-member")}) {
+                            Label("New Member", systemImage: "plus")
+                        }
+                    }
+                }
             }
         } else {
             VStack {
@@ -374,7 +362,7 @@ struct ContentView: View {
                     .font(.title2)
                     .padding(.bottom)
                 Button(action: {authenticate()}) {
-                    Label("Unlock App", systemImage: "lock.open")
+                    Text("Unlock App")
                         .font(.title2)
                 }
                 .buttonStyle(.borderedProminent)
@@ -505,6 +493,15 @@ struct ContentView: View {
             }
         }
         #endif
+        #if os(macOS)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {openWindow(id: "new-member")}) {
+                    Label("New Member", systemImage: "plus")
+                }
+            }
+        }
+        #endif
     }
     
     #if os(iOS)
@@ -603,6 +600,7 @@ struct ContentView: View {
         #endif
     }
     
+    #if os(iOS)
     //UI To Add A New Member Data
     var newAlter: some View {
         Form {
@@ -655,7 +653,6 @@ struct ContentView: View {
             }
         }
         .navigationTitle("New Alter")
-        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -707,8 +704,6 @@ struct ContentView: View {
                 .disabled(addNewAlterDisabled)
             }
         }
-        #endif
-        #if os(iOS)
         .onChange(of: avatarItem) { _ in
             Task {
                 if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
@@ -720,19 +715,6 @@ struct ContentView: View {
                 print("Failed")
             }
         }
-        #else
-        .onChange(of: avatarItem) { _ in
-            Task {
-                if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
-                    if let nsImage = NSImage(data: data) {
-                        avatarImage = Image(nsImage: nsImage)
-                        return
-                    }
-                }
-                print("Failed")
-            }
-        }
-        #endif
         .onAppear() {
             if newAlterName == "" {
                 addNewAlterDisabled = true
@@ -748,6 +730,7 @@ struct ContentView: View {
             }
         }
     }
+    #endif
     
     //Details For A Member From The Database
     var alterDetails: some View {
@@ -862,6 +845,13 @@ struct ContentView: View {
             #else
             ToolbarItem(placement: .primaryAction) {
                 ShareLink(item: URL(string: "/")!, subject: Text("Exported Alter"), message: Text("Information About An Alter"))
+            }
+            #endif
+            #if os(macOS)
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {openWindow(id: "new-member")}) {
+                    Label("New Member", systemImage: "plus")
+                }
             }
             #endif
         }

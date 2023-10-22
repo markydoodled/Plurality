@@ -13,6 +13,7 @@
 		D54F59992A99553300143366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54F59982A99553300143366 /* Assets.xcassets */; };
 		D54F599E2A99553300143366 /* Plurality macOS WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D54F59922A99553300143366 /* Plurality macOS WidgetExtension.appex */; platformFilters = (macos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D54F59A32A99563300143366 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F59A22A99563300143366 /* SettingsView.swift */; };
+		D54F59A52A9A059400143366 /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F59A42A9A059400143366 /* NewMemberView.swift */; };
 		D5BB0E232A61293600CFE99F /* PluralityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E222A61293600CFE99F /* PluralityApp.swift */; };
 		D5BB0E252A61293600CFE99F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E242A61293600CFE99F /* ContentView.swift */; };
 		D5BB0E272A61293800CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E262A61293800CFE99F /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		D54F599A2A99553300143366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D54F599B2A99553300143366 /* Plurality_macOS_Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Plurality_macOS_Widget.entitlements; sourceTree = "<group>"; };
 		D54F59A22A99563300143366 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D54F59A42A9A059400143366 /* NewMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
 		D5BB0E1F2A61293600CFE99F /* Plurality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plurality.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5BB0E222A61293600CFE99F /* PluralityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluralityApp.swift; sourceTree = "<group>"; };
 		D5BB0E242A61293600CFE99F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				D5BB0E792A647C7C00CFE99F /* AppIntents.swift */,
 				D5BB0E7B2A647CA900CFE99F /* Settings.bundle */,
 				D54F59A22A99563300143366 /* SettingsView.swift */,
+				D54F59A42A9A059400143366 /* NewMemberView.swift */,
 			);
 			path = Plurality;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D54F59A52A9A059400143366 /* NewMemberView.swift in Sources */,
 				D5BB0E2F2A61293800CFE99F /* Plurality.xcdatamodeld in Sources */,
 				D5BB0E7A2A647C7C00CFE99F /* AppIntents.swift in Sources */,
 				D5BB0E2C2A61293800CFE99F /* Persistence.swift in Sources */,
