@@ -792,6 +792,7 @@
 				INFOPLIST_FILE = Plurality/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need To Unlock Your Data.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2023 Mark Howard";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -831,6 +832,7 @@
 				INFOPLIST_FILE = Plurality/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need To Unlock Your Data.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2023 Mark Howard";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

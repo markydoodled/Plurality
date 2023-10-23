@@ -928,7 +928,7 @@ struct ContentView: View {
         var error: NSError?
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            let reason = "Unlock Your Data"
+            let reason = "unlock your data"
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
                 if success {
                     print("Authenticated")

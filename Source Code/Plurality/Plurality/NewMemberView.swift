@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 import CoreData
 
+#if os(macOS)
 struct NewMemberView: View {
     //Core Data Database Fetch
     @Environment(\.managedObjectContext) private var viewContext
@@ -177,3 +178,4 @@ struct NewMemberView_Previews: PreviewProvider {
         NewMemberView()
     }
 }
+#endif

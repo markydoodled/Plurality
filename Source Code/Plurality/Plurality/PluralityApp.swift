@@ -21,7 +21,6 @@ struct PluralityApp: App {
         #if os(macOS)
         Settings {
             SettingsView()
-                .frame(width: 300, height: 300)
         }
         Window("New Member", id: "new-member") {
             NewMemberView()
