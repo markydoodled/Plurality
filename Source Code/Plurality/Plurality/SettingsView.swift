@@ -43,7 +43,7 @@ struct SettingsView: View {
                             }
                         }
                     }) {
-                        Text("Request Permissions")
+                        Text("Request Notification Permissions")
                     }
                     Button(action: {
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
@@ -66,8 +66,8 @@ struct SettingsView: View {
             HStack {
                 Spacer()
                 VStack {
-                    LabeledContent("Version", value: "1.0")
-                    LabeledContent("Build", value: "1")
+                    LabeledContent("Version:", value: "1.0")
+                    LabeledContent("Build:", value: "1")
                 }
                 Spacer()
             }

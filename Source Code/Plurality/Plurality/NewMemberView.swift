@@ -91,7 +91,7 @@ struct NewMemberView: View {
             }
             .padding()
         }
-        .navigationTitle("New Alter")
+        .navigationTitle("New Member")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {

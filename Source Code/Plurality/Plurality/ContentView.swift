@@ -464,7 +464,7 @@ struct ContentView: View {
                             .frame(width: 50, height: 50)
                             .padding(.trailing)
                         VStack(alignment: .leading) {
-                            Text("Alter Name")
+                            Text("Member Name")
                                 .bold()
                                 .font(.title3)
                             Text("Front Start Date - End Date")
@@ -652,7 +652,7 @@ struct ContentView: View {
                 }
             }
         }
-        .navigationTitle("New Alter")
+        .navigationTitle("New Member")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -734,6 +734,7 @@ struct ContentView: View {
     
     //Details For A Member From The Database
     var alterDetails: some View {
+        #if os(iOS)
         Form {
             Group {
                 Section {
@@ -824,6 +825,104 @@ struct ContentView: View {
             }
         }
         .navigationTitle("\(alterDetailsName)")
+        #else
+        ScrollView {
+            HStack {
+                Spacer()
+                Form {
+                    Group {
+                        GroupBox {
+                            if let avatarImage {
+                                avatarImage
+                                    .resizable()
+                                    .scaledToFit()
+                            } else {
+                                Text("No Avatar")
+                            }
+                        } label: {
+                            Label("Avatar", systemImage: "photo")
+                        }
+                        GroupBox {
+                            LabeledContent("Name") {
+                                Text("\(alterDetailsName)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Age") {
+                                Text("\(alterDetailsAge)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Birthday") {
+                                Text("\(alterDetailsBirthday)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Description") {
+                                Text("\(alterDetailsDescription)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Role") {
+                                Text("\(alterDetailsRole)")
+                                    .textSelection(.enabled)
+                            }
+                        } label: {
+                            Label("Basic Info", systemImage: "info.circle")
+                        }
+                        GroupBox {
+                            LabeledContent("Likes") {
+                                Text("\(alterDetailsLikes)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Dislikes") {
+                                Text("\(alterDetailsDislikes)")
+                                    .textSelection(.enabled)
+                            }
+                        } label: {
+                            Label("Likes And Dislikes", systemImage: "hand.thumbsup")
+                        }
+                        GroupBox {
+                            LabeledContent("Gender") {
+                                Text("\(alterDetailsGender)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Pronouns") {
+                                Text("\(alterDetailsPronouns)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Sexuality") {
+                                Text("\(alterDetailsSexuality)")
+                                    .textSelection(.enabled)
+                            }
+                        } label: {
+                            Label("Identity", systemImage: "figure.dress.line.vertical.figure")
+                        }
+                    }
+                    Group {
+                        GroupBox {
+                            LabeledContent("Favourite Food") {
+                                Text("\(alterDetailsFavouriteFood)")
+                                    .textSelection(.enabled)
+                            }
+                            LabeledContent("Hobbies") {
+                                Text("\(alterDetailsHobbies)")
+                                    .textSelection(.enabled)
+                            }
+                        } label: {
+                            Label("Activites", systemImage: "tennisball")
+                        }
+                        GroupBox {
+                            LabeledContent("Notes") {
+                                Text("\(alterDetailsNotes)")
+                                    .textSelection(.enabled)
+                            }
+                        } label: {
+                            Label("Other", systemImage: "ellipsis.circle")
+                        }
+                    }
+                }
+                .padding()
+                Spacer()
+            }
+        }
+        .navigationTitle("\(alterDetailsName)")
         .toolbar {
             #if os(iOS)
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -840,11 +939,11 @@ struct ContentView: View {
             #endif
             #if os(iOS)
             ToolbarItem(placement: .navigationBarTrailing) {
-                ShareLink(item: URL(string: "/")!, subject: Text("Exported Alter"), message: Text("Information About An Alter"))
+                ShareLink(item: URL(string: "/")!, subject: Text("Exported Member"), message: Text("Information About An Member"))
             }
             #else
             ToolbarItem(placement: .primaryAction) {
-                ShareLink(item: URL(string: "/")!, subject: Text("Exported Alter"), message: Text("Information About An Alter"))
+                ShareLink(item: URL(string: "/")!, subject: Text("Exported Member"), message: Text("Information About An Member"))
             }
             #endif
             #if os(macOS)
@@ -855,6 +954,7 @@ struct ContentView: View {
             }
             #endif
         }
+        #endif
     }
     
     //Custom App Notifications View

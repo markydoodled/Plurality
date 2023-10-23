@@ -57,7 +57,7 @@ struct Plurality_watchOS_WidgetEntryView : View {
                     .foregroundColor(.teal)
                     .widgetAccentable()
                     .widgetLabel {
-                        Text("New Alter")
+                        Text("New Member")
                     }
             }
         case .accessoryCircular:
@@ -70,7 +70,7 @@ struct Plurality_watchOS_WidgetEntryView : View {
                     .foregroundColor(.teal)
                     .widgetAccentable()
                     .widgetLabel {
-                        Text("Add New Alter")
+                        Text("Add New Member")
                     }
             }
         case .accessoryRectangular:
@@ -80,12 +80,12 @@ struct Plurality_watchOS_WidgetEntryView : View {
                         .bold()
                         .foregroundColor(.teal)
                         .widgetAccentable()
-                    Text("Add New Alter")
+                    Text("Add New Member")
                 }
                 Spacer()
             }
         case .accessoryInline:
-            Label("New Alter", systemImage: "plus")
+            Label("New Member", systemImage: "plus")
                 .foregroundColor(.teal)
         @unknown default:
             Text("N/A")
@@ -100,8 +100,8 @@ struct Plurality_watchOS_Widget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             Plurality_watchOS_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Add New Alter")
-        .description("Quick Action To Get To The Add Alter Screen.")
+        .configurationDisplayName("Add New Member")
+        .description("Quick Action To Get To The Add Member Screen.")
         .supportedFamilies([.accessoryCorner, .accessoryInline, .accessoryCircular, .accessoryRectangular])
     }
 }
