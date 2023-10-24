@@ -52,7 +52,7 @@ struct Plurality_iOS_WidgetEntryView : View {
                         .foregroundColor(.white)
                         .padding(.all)
                         .background(.thinMaterial, in: Circle())
-                    Text("New Alter")
+                    Text("New Member")
                         .bold()
                         .foregroundColor(.white)
                 }
@@ -78,12 +78,12 @@ struct Plurality_iOS_WidgetEntryView : View {
                 VStack(alignment: .leading) {
                     Label("Plurality", systemImage: "person.3")
                         .bold()
-                    Text("Add New Alter")
+                    Text("Add New Member")
                 }
                 Spacer()
             }
         case .accessoryInline:
-            Label("New Alter", systemImage: "plus")
+            Label("New Member", systemImage: "plus")
         @unknown default:
             Text("N/A")
         }
@@ -96,8 +96,8 @@ struct Plurality_iOS_Widget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             Plurality_iOS_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Add New Alter")
-        .description("Quick Action To Get To The Add Alter Screen.")
+        .configurationDisplayName("Add New Member")
+        .description("Quick Action To Get To The Add Member Screen.")
         .supportedFamilies([.systemSmall, .accessoryCircular, .accessoryInline, .accessoryRectangular])
     }
 }

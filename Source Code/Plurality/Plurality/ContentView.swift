@@ -8,7 +8,9 @@
 import SwiftUI
 import CoreData
 import UserNotifications
+#if os(iOS)
 import MessageUI
+#endif
 import LocalAuthentication
 import PhotosUI
 
@@ -21,10 +23,15 @@ struct ContentView: View {
     private var frontHistory: FetchedResults<Fronting>
     
     //UI Control Variables
+    #if os(macOS)
+    @Environment(\.openWindow) private var openWindow
+    #endif
+    #if os(iOS)
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var tabSelection = 1
     @State var showingSettings = false
     @State var showingNewAlter = false
+    #endif
     @State var isUnlocked = false
     @State var addNewAlterDisabled = true
     @State var searchMembersText = ""
@@ -58,25 +65,28 @@ struct ContentView: View {
     @State var avatarImage: Image?
     
     //Alter Details UI Storage
-    @State var alterDetailsName = ""
+    @State var alterDetailsName = "N/A"
     @State var alterDetailsAge = Int64(1)
-    @State var alterDetailsBirthday = ""
-    @State var alterDetailsDescription = ""
-    @State var alterDetailsRole = ""
-    @State var alterDetailsLikes = ""
-    @State var alterDetailsDislikes = ""
-    @State var alterDetailsGender = ""
-    @State var alterDetailsPronouns = ""
-    @State var alterDetailsSexuality = ""
-    @State var alterDetailsFavouriteFood = ""
-    @State var alterDetailsHobbies = ""
-    @State var alterDetailsNotes = ""
+    @State var alterDetailsBirthday = "N/A"
+    @State var alterDetailsDescription = "N/A"
+    @State var alterDetailsRole = "N/A"
+    @State var alterDetailsLikes = "N/A"
+    @State var alterDetailsDislikes = "N/A"
+    @State var alterDetailsGender = "N/A"
+    @State var alterDetailsPronouns = "N/A"
+    @State var alterDetailsSexuality = "N/A"
+    @State var alterDetailsFavouriteFood = "N/A"
+    @State var alterDetailsHobbies = "N/A"
+    @State var alterDetailsNotes = "N/A"
     @State var alterDetailsAvatarImageData = Data()
     
+    #if os(iOS)
     //Mail Feedback View Triggers And Return Result
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
+    #endif
     var body: some View {
+        #if os(iOS)
         if horizontalSizeClass == .regular {
             if isUnlocked == true {
                 NavigationSplitView {
@@ -138,7 +148,7 @@ struct ContentView: View {
                             }
                             .onDelete(perform: deleteItems)
                         } label: {
-                            Label("Members", systemImage: "person.3")
+                            Label("Members", systemImage: "person.2")
                         }
                         NavigationLink(destination: history) {
                             Label("History", systemImage: "clock")
@@ -211,7 +221,7 @@ struct ContentView: View {
                         members
                     }
                     .tabItem {
-                        Image(systemName: "person.3")
+                        Image(systemName: "person.2")
                         Text("Members")
                     }
                     .tag(1)
@@ -249,8 +259,120 @@ struct ContentView: View {
                 }
             }
         }
+        #else
+        if isUnlocked == true {
+            NavigationSplitView {
+                List {
+                    DisclosureGroup(isExpanded: $isMembersGroupExpanded) {
+                        ForEach(items) { item in
+                            NavigationLink {
+                                alterDetails
+                                    .onAppear() {
+                                        alterDetailsName = item.name ?? "None"
+                                        alterDetailsAge = item.age
+                                        alterDetailsBirthday = item.birthday?.formatted(date: .long, time: .omitted) ?? Date().formatted(date: .long, time: .omitted)
+                                        alterDetailsDescription = item.desc ?? "None"
+                                        alterDetailsRole = item.role ?? "None"
+                                        alterDetailsLikes = item.likes ?? "None"
+                                        alterDetailsDislikes = item.dislikes ?? "None"
+                                        alterDetailsGender = item.gender ?? "None"
+                                        alterDetailsPronouns = item.pronouns ?? "None"
+                                        alterDetailsSexuality = item.sexuality ?? "None"
+                                        alterDetailsFavouriteFood = item.food ?? "None"
+                                        alterDetailsHobbies = item.hobbies ?? "None"
+                                        alterDetailsNotes = item.notes ?? "None"
+                                        alterDetailsAvatarImageData = item.avatar ?? Data()
+                                        print(alterDetailsName)
+                                    }
+                                    .id(item.id)
+                            } label: {
+                                HStack {
+                                    /*Image("\(item.avatar)")
+                                        .resizable()
+                                        .clipShape(Circle())
+                                        .frame(width: 50, height: 50)
+                                        .padding(.trailing)
+                                        .scaledToFill()*/
+                                    Circle()
+                                        .foregroundColor(.secondary)
+                                        .frame(width: 50, height: 50)
+                                        .padding(.trailing)
+                                    VStack(alignment: .leading) {
+                                        Text("\(item.name ?? "None")")
+                                            .bold()
+                                            .font(.title3)
+                                        if item.pronouns != "" {
+                                            Text("\(item.pronouns ?? "None")")
+                                                .foregroundColor(.secondary)
+                                        }
+                                    }
+                                    Spacer()
+                                }
+                            }
+                            .contextMenu {
+                                Button(action: {}) {
+                                    Text("Set As Front")
+                                }
+                                Button(action: {}) {
+                                    Text("Add To Front")
+                                }
+                            }
+                        }
+                        .onDelete(perform: deleteItems)
+                    } label: {
+                        Label("Members", systemImage: "person.2")
+                    }
+                    
+                    NavigationLink(destination: history) {
+                        Label("History", systemImage: "clock")
+                    }
+                    NavigationLink(destination: appNotifications) {
+                        Label("App Notifictions", systemImage: "app.badge")
+                    }
+                    DisclosureGroup {
+                        //Link("Childline", destination: URL(string: "https://www.childline.org.uk/")!)
+                    } label: {
+                        Label("Useful Links", systemImage: "link")
+                    }
+                }
+                .listStyle(.sidebar)
+                .navigationTitle("Plurality")
+                .frame(minWidth: 230)
+                .searchable(text: $searchMembersText, placement: .sidebar, prompt: Text("Search For Members..."))
+            } detail: {
+                VStack {
+                    Image("AppsIconMac")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                        .cornerRadius(25)
+                    Text("Plurality")
+                        .bold()
+                        .font(.title2)
+                }
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button(action: {openWindow(id: "new-member")}) {
+                            Label("New Member", systemImage: "plus")
+                        }
+                    }
+                }
+            }
+        } else {
+            VStack {
+                Text("App Locked")
+                    .font(.title2)
+                    .padding(.bottom)
+                Button(action: {authenticate()}) {
+                    Text("Unlock App")
+                        .font(.title2)
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        }
+        #endif
     }
     
+    #if os(iOS)
     //Members Main View
     var members: some View {
         List {
@@ -328,6 +450,7 @@ struct ContentView: View {
             }
         }
     }
+    #endif
     
     //Fronting History View
     var history: some View {
@@ -342,7 +465,7 @@ struct ContentView: View {
                             .frame(width: 50, height: 50)
                             .padding(.trailing)
                         VStack(alignment: .leading) {
-                            Text("Alter Name")
+                            Text("Member Name")
                                 .bold()
                                 .font(.title3)
                             Text("Front Start Date - End Date")
@@ -351,18 +474,38 @@ struct ContentView: View {
                         Spacer()
                     }
                 }
+                #if os(iOS)
                 .searchable(text: $searchHistoryText, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Search For Fronts..."))
+                #else
+                .searchable(text: $searchHistoryText, placement: .toolbar, prompt: Text("Search For Fronts..."))
+                #endif
             }
         }
+        #if os(iOS)
         .listStyle(.insetGrouped)
+        #else
+        .listStyle(.inset(alternatesRowBackgrounds: true))
+        #endif
         .navigationTitle("History")
+        #if os(iOS)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 EditButton()
             }
         }
+        #endif
+        #if os(macOS)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {openWindow(id: "new-member")}) {
+                    Label("New Member", systemImage: "plus")
+                }
+            }
+        }
+        #endif
     }
     
+    #if os(iOS)
     //iOS Compact More Screen
     var more: some View {
         Form {
@@ -397,6 +540,7 @@ struct ContentView: View {
             }
         }
     }
+    #endif
     
     //App Settings View
     var settings: some View {
@@ -430,6 +574,7 @@ struct ContentView: View {
             Section {
                 LabeledContent("Version", value: "1.0")
                 LabeledContent("Build", value: "1")
+                #if os(iOS)
                 Button(action: {self.isShowingMailView.toggle()}) {
                     Text("Send Feedback...")
                 }
@@ -439,11 +584,13 @@ struct ContentView: View {
                 Button(action: {UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)}) {
                     Text("Open Settings App...")
                 }
+                #endif
             } header: {
                 Label("Misc.", systemImage: "ellipsis.circle")
             }
         }
         .navigationTitle("Settings")
+        #if os(iOS)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {showingSettings = false}) {
@@ -451,8 +598,10 @@ struct ContentView: View {
                 }
             }
         }
+        #endif
     }
     
+    #if os(iOS)
     //UI To Add A New Member Data
     var newAlter: some View {
         Form {
@@ -504,7 +653,7 @@ struct ContentView: View {
                 }
             }
         }
-        .navigationTitle("New Alter")
+        .navigationTitle("New Member")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -582,9 +731,11 @@ struct ContentView: View {
             }
         }
     }
+    #endif
     
     //Details For A Member From The Database
     var alterDetails: some View {
+        #if os(iOS)
         Form {
             Group {
                 Section {
@@ -675,16 +826,168 @@ struct ContentView: View {
             }
         }
         .navigationTitle("\(alterDetailsName)")
+        #else
+        ScrollView {
+            VStack {
+                if let avatarImage {
+                    avatarImage
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Text("No Avatar")
+                }
+                Divider()
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            LabeledContent("Name") {
+                                Text("\(alterDetailsName)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Age") {
+                                Text("\(alterDetailsAge)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Birthday") {
+                                Text("\(alterDetailsBirthday)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Description") {
+                                Text("\(alterDetailsDescription)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Role") {
+                                Text("\(alterDetailsRole)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                        }
+                        Spacer()
+                    }
+                } label: {
+                    Label("Basic Info", systemImage: "info.circle")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            LabeledContent("Likes") {
+                                Text("\(alterDetailsLikes)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Dislikes") {
+                                Text("\(alterDetailsDislikes)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                        }
+                        Spacer()
+                    }
+                } label: {
+                    Label("Likes And Dislikes", systemImage: "hand.thumbsup")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            LabeledContent("Gender") {
+                                Text("\(alterDetailsGender)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Pronouns") {
+                                Text("\(alterDetailsPronouns)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Sexuality") {
+                                Text("\(alterDetailsSexuality)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                        }
+                        Spacer()
+                    }
+                } label: {
+                    Label("Identity", systemImage: "figure.dress.line.vertical.figure")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            LabeledContent("Favourite Food") {
+                                Text("\(alterDetailsFavouriteFood)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                            LabeledContent("Hobbies") {
+                                Text("\(alterDetailsHobbies)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                        }
+                        Spacer()
+                    }
+                } label: {
+                    Label("Activites", systemImage: "tennisball")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            LabeledContent("Notes") {
+                                Text("\(alterDetailsNotes)")
+                                    .textSelection(.enabled)
+                                    .bold()
+                            }
+                        }
+                        Spacer()
+                    }
+                } label: {
+                    Label("Other", systemImage: "ellipsis.circle")
+                }
+            }
+            .padding()
+        }
+        .navigationTitle("\(alterDetailsName)")
         .toolbar {
+            #if os(iOS)
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {}) {
                     Image(systemName: "slider.horizontal.3")
                 }
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                ShareLink(item: URL(string: "/")!, subject: Text("Exported Alter"), message: Text("Information About An Alter"))
+            #else
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {}) {
+                    Image(systemName: "slider.horizontal.3")
+                }
             }
+            #endif
+            #if os(iOS)
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ShareLink(item: URL(string: "/")!, subject: Text("Exported Member"), message: Text("Information About An Member"))
+            }
+            #else
+            ToolbarItem(placement: .primaryAction) {
+                ShareLink(item: URL(string: "/")!, subject: Text("Exported Member"), message: Text("Information About An Member"))
+            }
+            #endif
+            #if os(macOS)
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {openWindow(id: "new-member")}) {
+                    Label("New Member", systemImage: "plus")
+                }
+            }
+            #endif
         }
+        #endif
     }
     
     //Custom App Notifications View
@@ -757,9 +1060,9 @@ struct ContentView: View {
         let context = LAContext()
         var error: NSError?
         
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Unlock Your Data"
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+            let reason = "unlock your data"
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
                 if success {
                     print("Authenticated")
                     isUnlocked = true
@@ -802,6 +1105,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+#if os(iOS)
 //Feedback Mail View
 struct MailView: UIViewControllerRepresentable {
     @Binding var isShowing: Bool
@@ -845,3 +1149,4 @@ struct MailView: UIViewControllerRepresentable {
         
     }
 }
+#endif

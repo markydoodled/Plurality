@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D54F59932A99553300143366 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3B2A62D11300CFE99F /* WidgetKit.framework */; };
+		D54F59942A99553300143366 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3D2A62D11300CFE99F /* SwiftUI.framework */; };
+		D54F59972A99553300143366 /* Plurality_macOS_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F59962A99553300143366 /* Plurality_macOS_Widget.swift */; };
+		D54F59992A99553300143366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54F59982A99553300143366 /* Assets.xcassets */; };
+		D54F599E2A99553300143366 /* Plurality macOS WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D54F59922A99553300143366 /* Plurality macOS WidgetExtension.appex */; platformFilters = (macos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D54F59A32A99563300143366 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F59A22A99563300143366 /* SettingsView.swift */; };
+		D54F59A52A9A059400143366 /* NewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F59A42A9A059400143366 /* NewMemberView.swift */; };
 		D5BB0E232A61293600CFE99F /* PluralityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E222A61293600CFE99F /* PluralityApp.swift */; };
 		D5BB0E252A61293600CFE99F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E242A61293600CFE99F /* ContentView.swift */; };
 		D5BB0E272A61293800CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E262A61293800CFE99F /* Assets.xcassets */; };
@@ -18,12 +25,12 @@
 		D5BB0E412A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E402A62D11300CFE99F /* Plurality_iOS_WidgetBundle.swift */; };
 		D5BB0E432A62D11300CFE99F /* Plurality_iOS_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E422A62D11300CFE99F /* Plurality_iOS_Widget.swift */; };
 		D5BB0E452A62D11500CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E442A62D11500CFE99F /* Assets.xcassets */; };
-		D5BB0E492A62D11500CFE99F /* Plurality iOS WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D5BB0E392A62D11300CFE99F /* Plurality iOS WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5BB0E492A62D11500CFE99F /* Plurality iOS WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D5BB0E392A62D11300CFE99F /* Plurality iOS WidgetExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5BB0E562A6444E700CFE99F /* Plurality_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E552A6444E700CFE99F /* Plurality_watchOSApp.swift */; };
 		D5BB0E582A6444E700CFE99F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E572A6444E700CFE99F /* ContentView.swift */; };
 		D5BB0E5A2A6444E900CFE99F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E592A6444E900CFE99F /* Assets.xcassets */; };
 		D5BB0E5D2A6444E900CFE99F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BB0E5C2A6444E900CFE99F /* Preview Assets.xcassets */; };
-		D5BB0E602A6444E900CFE99F /* Plurality.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5BB0E532A6444E700CFE99F /* Plurality.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5BB0E602A6444E900CFE99F /* Plurality.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D5BB0E532A6444E700CFE99F /* Plurality.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5BB0E6A2A64455100CFE99F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3B2A62D11300CFE99F /* WidgetKit.framework */; };
 		D5BB0E6B2A64455100CFE99F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5BB0E3D2A62D11300CFE99F /* SwiftUI.framework */; };
 		D5BB0E6E2A64455100CFE99F /* Plurality_watchOS_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB0E6D2A64455100CFE99F /* Plurality_watchOS_Widget.swift */; };
@@ -41,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D54F599C2A99553300143366 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5BB0E172A61293600CFE99F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D54F59912A99553300143366;
+			remoteInfo = "Plurality macOS WidgetExtension";
+		};
 		D5BB0E472A62D11500CFE99F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5BB0E172A61293600CFE99F /* Project object */;
@@ -72,6 +86,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				D5BB0E492A62D11500CFE99F /* Plurality iOS WidgetExtension.appex in Embed Foundation Extensions */,
+				D54F599E2A99553300143366 /* Plurality macOS WidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +116,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D54F59922A99553300143366 /* Plurality macOS WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Plurality macOS WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D54F59962A99553300143366 /* Plurality_macOS_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plurality_macOS_Widget.swift; sourceTree = "<group>"; };
+		D54F59982A99553300143366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D54F599A2A99553300143366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D54F599B2A99553300143366 /* Plurality_macOS_Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Plurality_macOS_Widget.entitlements; sourceTree = "<group>"; };
+		D54F59A22A99563300143366 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D54F59A42A9A059400143366 /* NewMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberView.swift; sourceTree = "<group>"; };
 		D5BB0E1F2A61293600CFE99F /* Plurality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plurality.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5BB0E222A61293600CFE99F /* PluralityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluralityApp.swift; sourceTree = "<group>"; };
 		D5BB0E242A61293600CFE99F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +156,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D54F598F2A99553300143366 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D54F59942A99553300143366 /* SwiftUI.framework in Frameworks */,
+				D54F59932A99553300143366 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5BB0E1C2A61293600CFE99F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,6 +201,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D54F59952A99553300143366 /* Plurality macOS Widget */ = {
+			isa = PBXGroup;
+			children = (
+				D54F59962A99553300143366 /* Plurality_macOS_Widget.swift */,
+				D54F59982A99553300143366 /* Assets.xcassets */,
+				D54F599A2A99553300143366 /* Info.plist */,
+				D54F599B2A99553300143366 /* Plurality_macOS_Widget.entitlements */,
+			);
+			path = "Plurality macOS Widget";
+			sourceTree = "<group>";
+		};
 		D5BB0E162A61293600CFE99F = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +221,7 @@
 				D5BB0E3F2A62D11300CFE99F /* Plurality iOS Widget */,
 				D5BB0E542A6444E700CFE99F /* Plurality watchOS Watch App */,
 				D5BB0E6C2A64455100CFE99F /* Plurality watchOS Widget */,
+				D54F59952A99553300143366 /* Plurality macOS Widget */,
 				D5BB0E3A2A62D11300CFE99F /* Frameworks */,
 				D5BB0E202A61293600CFE99F /* Products */,
 			);
@@ -191,6 +234,7 @@
 				D5BB0E392A62D11300CFE99F /* Plurality iOS WidgetExtension.appex */,
 				D5BB0E532A6444E700CFE99F /* Plurality.app */,
 				D5BB0E692A64455100CFE99F /* Plurality watchOS WidgetExtension.appex */,
+				D54F59922A99553300143366 /* Plurality macOS WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,6 +252,8 @@
 				D5BB0E282A61293800CFE99F /* Preview Content */,
 				D5BB0E792A647C7C00CFE99F /* AppIntents.swift */,
 				D5BB0E7B2A647CA900CFE99F /* Settings.bundle */,
+				D54F59A22A99563300143366 /* SettingsView.swift */,
+				D54F59A42A9A059400143366 /* NewMemberView.swift */,
 			);
 			path = Plurality;
 			sourceTree = "<group>";
@@ -273,6 +319,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D54F59912A99553300143366 /* Plurality macOS WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D54F59A12A99553300143366 /* Build configuration list for PBXNativeTarget "Plurality macOS WidgetExtension" */;
+			buildPhases = (
+				D54F598E2A99553300143366 /* Sources */,
+				D54F598F2A99553300143366 /* Frameworks */,
+				D54F59902A99553300143366 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Plurality macOS WidgetExtension";
+			productName = "Plurality macOS WidgetExtension";
+			productReference = D54F59922A99553300143366 /* Plurality macOS WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D5BB0E1E2A61293600CFE99F /* Plurality */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5BB0E322A61293800CFE99F /* Build configuration list for PBXNativeTarget "Plurality" */;
@@ -288,6 +351,7 @@
 			dependencies = (
 				D5BB0E482A62D11500CFE99F /* PBXTargetDependency */,
 				D5BB0E5F2A6444E900CFE99F /* PBXTargetDependency */,
+				D54F599D2A99553300143366 /* PBXTargetDependency */,
 			);
 			name = Plurality;
 			productName = Plurality;
@@ -358,8 +422,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					D54F59912A99553300143366 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					D5BB0E1E2A61293600CFE99F = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -394,11 +461,20 @@
 				D5BB0E382A62D11300CFE99F /* Plurality iOS WidgetExtension */,
 				D5BB0E522A6444E700CFE99F /* Plurality watchOS Watch App */,
 				D5BB0E682A64455100CFE99F /* Plurality watchOS WidgetExtension */,
+				D54F59912A99553300143366 /* Plurality macOS WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D54F59902A99553300143366 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D54F59992A99553300143366 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5BB0E1D2A61293600CFE99F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,13 +513,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D54F598E2A99553300143366 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D54F59972A99553300143366 /* Plurality_macOS_Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5BB0E1B2A61293600CFE99F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D54F59A52A9A059400143366 /* NewMemberView.swift in Sources */,
 				D5BB0E2F2A61293800CFE99F /* Plurality.xcdatamodeld in Sources */,
 				D5BB0E7A2A647C7C00CFE99F /* AppIntents.swift in Sources */,
 				D5BB0E2C2A61293800CFE99F /* Persistence.swift in Sources */,
+				D54F59A32A99563300143366 /* SettingsView.swift in Sources */,
 				D5BB0E252A61293600CFE99F /* ContentView.swift in Sources */,
 				D5BB0E232A61293600CFE99F /* PluralityApp.swift in Sources */,
 			);
@@ -484,13 +570,23 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D54F599D2A99553300143366 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilters = (
+				macos,
+			);
+			target = D54F59912A99553300143366 /* Plurality macOS WidgetExtension */;
+			targetProxy = D54F599C2A99553300143366 /* PBXContainerItemProxy */;
+		};
 		D5BB0E482A62D11500CFE99F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = D5BB0E382A62D11300CFE99F /* Plurality iOS WidgetExtension */;
 			targetProxy = D5BB0E472A62D11500CFE99F /* PBXContainerItemProxy */;
 		};
 		D5BB0E5F2A6444E900CFE99F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = D5BB0E522A6444E700CFE99F /* Plurality watchOS Watch App */;
 			targetProxy = D5BB0E5E2A6444E900CFE99F /* PBXContainerItemProxy */;
 		};
@@ -502,6 +598,68 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		D54F599F2A99553300143366 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Plurality macOS Widget/Plurality_macOS_Widget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Plurality macOS Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Plurality macOS Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MSJ.Plurality.Plurality-macOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D54F59A02A99553300143366 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Plurality macOS Widget/Plurality_macOS_Widget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = ZWASU9HFBU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Plurality macOS Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Plurality macOS Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MSJ.Plurality.Plurality-macOS-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		D5BB0E302A61293800CFE99F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -538,6 +696,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -553,6 +712,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -599,6 +759,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -608,6 +769,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -634,6 +796,7 @@
 				INFOPLIST_FILE = Plurality/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need To Unlock Your Data.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2023 Mark Howard";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -644,12 +807,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MSJ.Plurality;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -672,6 +836,7 @@
 				INFOPLIST_FILE = Plurality/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need To Unlock Your Data.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2023 Mark Howard";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -682,12 +847,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MSJ.Plurality;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -879,6 +1045,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D54F59A12A99553300143366 /* Build configuration list for PBXNativeTarget "Plurality macOS WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D54F599F2A99553300143366 /* Debug */,
+				D54F59A02A99553300143366 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D5BB0E1A2A61293600CFE99F /* Build configuration list for PBXProject "Plurality" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

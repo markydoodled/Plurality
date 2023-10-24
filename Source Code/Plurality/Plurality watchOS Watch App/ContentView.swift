@@ -161,7 +161,7 @@ struct ContentView: View {
                             .frame(width: 50, height: 50)
                             .padding(.trailing)
                         VStack(alignment: .leading) {
-                            Text("Alter Name")
+                            Text("Member Name")
                                 .bold()
                                 .font(.title3)
                             Text("Front Start Date - End Date")
@@ -460,7 +460,7 @@ struct ContentView: View {
                 Button(action: {}) {
                     Label("Edit Member", systemImage: "slider.horizontal.3")
                 }
-                ShareLink(item: URL(string: "/")!, subject: Text("Exported Alter"), message: Text("Information About An Alter"))
+                ShareLink(item: URL(string: "/")!, subject: Text("Exported Member"), message: Text("Information About An Member"))
             }
         }
         .navigationTitle("\(alterDetailsName)")

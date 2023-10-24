@@ -15,5 +15,18 @@ struct PluralityApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
+        .commands {
+            SidebarCommands()
+        }
+        #if os(macOS)
+        Settings {
+            SettingsView()
+        }
+        Window("New Member", id: "new-member") {
+            NewMemberView()
+                .frame(minWidth: 900, minHeight: 600)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
+        #endif
     }
 }
