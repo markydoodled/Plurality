@@ -65,19 +65,19 @@ struct ContentView: View {
     @State var avatarImage: Image?
     
     //Alter Details UI Storage
-    @State var alterDetailsName = ""
+    @State var alterDetailsName = "N/A"
     @State var alterDetailsAge = Int64(1)
-    @State var alterDetailsBirthday = ""
-    @State var alterDetailsDescription = ""
-    @State var alterDetailsRole = ""
-    @State var alterDetailsLikes = ""
-    @State var alterDetailsDislikes = ""
-    @State var alterDetailsGender = ""
-    @State var alterDetailsPronouns = ""
-    @State var alterDetailsSexuality = ""
-    @State var alterDetailsFavouriteFood = ""
-    @State var alterDetailsHobbies = ""
-    @State var alterDetailsNotes = ""
+    @State var alterDetailsBirthday = "N/A"
+    @State var alterDetailsDescription = "N/A"
+    @State var alterDetailsRole = "N/A"
+    @State var alterDetailsLikes = "N/A"
+    @State var alterDetailsDislikes = "N/A"
+    @State var alterDetailsGender = "N/A"
+    @State var alterDetailsPronouns = "N/A"
+    @State var alterDetailsSexuality = "N/A"
+    @State var alterDetailsFavouriteFood = "N/A"
+    @State var alterDetailsHobbies = "N/A"
+    @State var alterDetailsNotes = "N/A"
     @State var alterDetailsAvatarImageData = Data()
     
     #if os(iOS)
@@ -282,6 +282,7 @@ struct ContentView: View {
                                         alterDetailsHobbies = item.hobbies ?? "None"
                                         alterDetailsNotes = item.notes ?? "None"
                                         alterDetailsAvatarImageData = item.avatar ?? Data()
+                                        print(alterDetailsName)
                                     }
                                     .id(item.id)
                             } label: {
@@ -827,100 +828,132 @@ struct ContentView: View {
         .navigationTitle("\(alterDetailsName)")
         #else
         ScrollView {
-            HStack {
-                Spacer()
-                Form {
-                    Group {
-                        GroupBox {
-                            if let avatarImage {
-                                avatarImage
-                                    .resizable()
-                                    .scaledToFit()
-                            } else {
-                                Text("No Avatar")
-                            }
-                        } label: {
-                            Label("Avatar", systemImage: "photo")
-                        }
-                        GroupBox {
+            VStack {
+                if let avatarImage {
+                    avatarImage
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Text("No Avatar")
+                }
+                Divider()
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
                             LabeledContent("Name") {
                                 Text("\(alterDetailsName)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Age") {
                                 Text("\(alterDetailsAge)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Birthday") {
                                 Text("\(alterDetailsBirthday)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Description") {
                                 Text("\(alterDetailsDescription)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Role") {
                                 Text("\(alterDetailsRole)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
-                        } label: {
-                            Label("Basic Info", systemImage: "info.circle")
                         }
-                        GroupBox {
+                        Spacer()
+                    }
+                } label: {
+                    Label("Basic Info", systemImage: "info.circle")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
                             LabeledContent("Likes") {
                                 Text("\(alterDetailsLikes)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Dislikes") {
                                 Text("\(alterDetailsDislikes)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
-                        } label: {
-                            Label("Likes And Dislikes", systemImage: "hand.thumbsup")
                         }
-                        GroupBox {
+                        Spacer()
+                    }
+                } label: {
+                    Label("Likes And Dislikes", systemImage: "hand.thumbsup")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
                             LabeledContent("Gender") {
                                 Text("\(alterDetailsGender)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Pronouns") {
                                 Text("\(alterDetailsPronouns)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Sexuality") {
                                 Text("\(alterDetailsSexuality)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
-                        } label: {
-                            Label("Identity", systemImage: "figure.dress.line.vertical.figure")
                         }
+                        Spacer()
                     }
-                    Group {
-                        GroupBox {
+                } label: {
+                    Label("Identity", systemImage: "figure.dress.line.vertical.figure")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
                             LabeledContent("Favourite Food") {
                                 Text("\(alterDetailsFavouriteFood)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
                             LabeledContent("Hobbies") {
                                 Text("\(alterDetailsHobbies)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
-                        } label: {
-                            Label("Activites", systemImage: "tennisball")
                         }
-                        GroupBox {
+                        Spacer()
+                    }
+                } label: {
+                    Label("Activites", systemImage: "tennisball")
+                }
+                GroupBox {
+                    HStack {
+                        Spacer()
+                        VStack {
                             LabeledContent("Notes") {
                                 Text("\(alterDetailsNotes)")
                                     .textSelection(.enabled)
+                                    .bold()
                             }
-                        } label: {
-                            Label("Other", systemImage: "ellipsis.circle")
                         }
+                        Spacer()
                     }
+                } label: {
+                    Label("Other", systemImage: "ellipsis.circle")
                 }
-                .padding()
-                Spacer()
             }
+            .padding()
         }
         .navigationTitle("\(alterDetailsName)")
         .toolbar {
