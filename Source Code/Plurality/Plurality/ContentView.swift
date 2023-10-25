@@ -157,7 +157,18 @@ struct ContentView: View {
                             Label("App Notifictions", systemImage: "app.badge")
                         }
                         DisclosureGroup {
-                            //Link("Childline", destination: URL(string: "https://www.childline.org.uk/")!)
+                            Link(destination: URL(string: "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/")!) {
+                                Label("NHS", systemImage: "link.circle")
+                                    .foregroundColor(.primary)
+                            }
+                            Link(destination: URL(string: "https://www.childline.org.uk/")!) {
+                                Label("Childline", systemImage: "link.circle")
+                                    .foregroundColor(.primary)
+                            }
+                            Link(destination: URL(string: "https://www.clinicds.org.uk")!) {
+                                Label("Clinic For Dissociative Studies", systemImage: "link.circle")
+                                    .foregroundColor(.primary)
+                            }
                         } label: {
                             Label("Useful Links", systemImage: "link")
                         }
@@ -330,7 +341,18 @@ struct ContentView: View {
                         Label("App Notifictions", systemImage: "app.badge")
                     }
                     DisclosureGroup {
-                        //Link("Childline", destination: URL(string: "https://www.childline.org.uk/")!)
+                        Link(destination: URL(string: "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/")!) {
+                            Label("NHS", systemImage: "link.circle")
+                                .foregroundColor(.primary)
+                        }
+                        Link(destination: URL(string: "https://www.childline.org.uk/")!) {
+                            Label("Childline", systemImage: "link.circle")
+                                .foregroundColor(.primary)
+                        }
+                        Link(destination: URL(string: "https://www.clinicds.org.uk")!) {
+                            Label("Clinic For Dissociative Studies", systemImage: "link.circle")
+                                .foregroundColor(.primary)
+                        }
                     } label: {
                         Label("Useful Links", systemImage: "link")
                     }
@@ -519,9 +541,9 @@ struct ContentView: View {
                 }*/
             }
             Section {
-                //Link("NHS", destination: URL(string: "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/")!)
-                //Link("Childline", destination: URL(string: "https://www.childline.org.uk/")!)
-                //Link("Clinic For Dissociative Studies", destination: URL(string: "https://www.clinicds.org.uk")!)
+                Link("NHS", destination: URL(string: "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/")!)
+                Link("Childline", destination: URL(string: "https://www.childline.org.uk/")!)
+                Link("Clinic For Dissociative Studies", destination: URL(string: "https://www.clinicds.org.uk")!)
             } header: {
                 Label("Useful Links", systemImage: "link")
             }
