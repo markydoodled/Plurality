@@ -215,11 +215,17 @@ struct ContentView: View {
                 }
             } else {
                 VStack {
-                    Text("App Locked")
-                        .font(.title2)
+                    Image(systemName: "lock.open")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.accentColor)
+                        .padding()
+                    Text("Plurality Is Locked")
+                        .font(.title)
+                        .bold()
                         .padding(.bottom)
                     Button(action: {authenticate()}) {
-                        Label("Unlock App", systemImage: "lock.open")
+                        Text("Unlock Plurality")
                             .font(.title2)
                     }
                     .buttonStyle(.borderedProminent)
@@ -259,11 +265,17 @@ struct ContentView: View {
                 }*/
             } else {
                 VStack {
-                    Text("App Locked")
-                        .font(.title2)
+                    Image(systemName: "lock.open")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.accentColor)
+                        .padding()
+                    Text("Plurality Is Locked")
+                        .font(.title)
+                        .bold()
                         .padding(.bottom)
                     Button(action: {authenticate()}) {
-                        Label("Unlock App", systemImage: "lock.open")
+                        Text("Unlock Plurality")
                             .font(.title2)
                     }
                     .buttonStyle(.borderedProminent)
@@ -381,11 +393,17 @@ struct ContentView: View {
             }
         } else {
             VStack {
-                Text("App Locked")
-                    .font(.title2)
+                Image(systemName: "lock.open")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.accentColor)
+                    .padding()
+                Text("Plurality Is Locked")
+                    .font(.title)
+                    .bold()
                     .padding(.bottom)
                 Button(action: {authenticate()}) {
-                    Text("Unlock App")
+                    Text("Unlock Plurality")
                         .font(.title2)
                 }
                 .buttonStyle(.borderedProminent)
