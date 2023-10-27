@@ -1095,7 +1095,7 @@ struct ContentView: View {
         }
     }
     
-    //Authenticate Using TouchID Or FaceID To Access The App
+    //Authenticate Using TouchID, Passcode Or FaceID To Access The App
     func authenticate() {
         let context = LAContext()
         var error: NSError?
