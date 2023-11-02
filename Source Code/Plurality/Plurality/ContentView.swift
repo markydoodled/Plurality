@@ -13,6 +13,7 @@ import MessageUI
 #endif
 import LocalAuthentication
 import PhotosUI
+import StoreKit
 
 struct ContentView: View {
     //Core Data Database Fetch
@@ -41,8 +42,10 @@ struct ContentView: View {
     
     //Custom Notification UI Storage
     @State var appNotificationsTitleText = ""
+    @State var appNotificationsBodyText = ""
     @State var appNotificationsDueDateAndTime = Date()
     @State var showingAppNotificationsClearedAlert = false
+    @State var disabledAppNotificationAdd = true
     
     //Add Alter UI Storage
     @State var newAlterName = ""
@@ -154,7 +157,7 @@ struct ContentView: View {
                             Label("History", systemImage: "clock")
                         }
                         NavigationLink(destination: appNotifications) {
-                            Label("App Notifictions", systemImage: "app.badge")
+                            Label("Reminders", systemImage: "app.badge")
                         }
                         DisclosureGroup {
                             Link(destination: URL(string: "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/")!) {
@@ -350,7 +353,7 @@ struct ContentView: View {
                         Label("History", systemImage: "clock")
                     }
                     NavigationLink(destination: appNotifications) {
-                        Label("App Notifictions", systemImage: "app.badge")
+                        Label("Reminders", systemImage: "app.badge")
                     }
                     DisclosureGroup {
                         Link(destination: URL(string: "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/")!) {
@@ -550,13 +553,13 @@ struct ContentView: View {
     var more: some View {
         Form {
             Section {
-                /*NavigationLink(destination:
+                NavigationLink(destination:
                     NavigationStack {
                         appNotifications
                     }
                 ) {
-                    Label("App Notifications", systemImage: "app.badge")
-                }*/
+                    Label("Reminders", systemImage: "app.badge")
+                }
             }
             Section {
                 Link("NHS", destination: URL(string: "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/")!)
@@ -1030,28 +1033,149 @@ struct ContentView: View {
         #endif
     }
     
-    //Custom App Notifications View
+    //Custom Reminders View
     var appNotifications: some View {
+        #if os(macOS)
         Form {
             TextField(text: $appNotificationsTitleText, prompt: Text("Enter The Notification Title...")) {
-                Text("Title")
+                Text("Title...")
             }
             DatePicker(selection: $appNotificationsDueDateAndTime, displayedComponents: [.date, .hourAndMinute]) {
                 Text("Date And Time")
             }
-            Button(action: {
-                let content = UNMutableNotificationContent()
-                content.title = appNotificationsTitleText
-                content.sound = UNNotificationSound.default
-                let timeInt = appNotificationsDueDateAndTime.timeIntervalSinceNow
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInt, repeats: false)
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request)
-            }) {
-                Text("Schedule Notification")
+            TextField(text: $appNotificationsBodyText, prompt: Text("Enter The Notification Body...")) {
+                Text("Body...")
+            }
+            HStack {
+                Spacer()
+                Button(action: {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("Notifications Setup")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }) {
+                    Text("Request Notification Permissions")
+                }
+                Spacer()
+                Button(action: {
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    showingAppNotificationsClearedAlert = true
+                }) {
+                    Text("Clear All Scheduled Notifications")
+                }
+                .alert("Notifications Cleared", isPresented: $showingAppNotificationsClearedAlert) {
+                    Button(action: {self.showingAppNotificationsClearedAlert = true}) {
+                        Text("Done")
+                    }
+                }
+                Spacer()
             }
         }
-        .navigationTitle("App Notifications")
+        .padding()
+        .navigationTitle("Reminders")
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button(action: {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("Notifications Setup")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                    let content = UNMutableNotificationContent()
+                    content.title = appNotificationsTitleText
+                    content.body = appNotificationsBodyText
+                    content.sound = UNNotificationSound.default
+                    let timeInt = appNotificationsDueDateAndTime.timeIntervalSinceNow
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInt, repeats: false)
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request)
+                }) {
+                    Text("Add")
+                }
+                .disabled(disabledAppNotificationAdd)
+            }
+        }
+        .onChange(of: appNotificationsTitleText) { change in
+            if appNotificationsTitleText != "" {
+                disabledAppNotificationAdd = false
+            } else {
+                disabledAppNotificationAdd = true
+            }
+        }
+        #else
+        Form {
+            TextField(text: $appNotificationsTitleText, prompt: Text("Enter The Notification Title...")) {
+                Text("Title...")
+            }
+            DatePicker(selection: $appNotificationsDueDateAndTime, displayedComponents: [.date, .hourAndMinute]) {
+                Text("Date And Time")
+            }
+            TextField(text: $appNotificationsBodyText, prompt: Text("Enter The Notification Body...")) {
+                Text("Body...")
+            }
+            Section {
+                Button(action: {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("Notifications Setup")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }) {
+                    Text("Request Notification Permissions")
+                }
+                Button(action: {
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    showingAppNotificationsClearedAlert = true
+                }) {
+                    Text("Clear All Scheduled Notifications")
+                }
+                .alert("Notifications Cleared", isPresented: $showingAppNotificationsClearedAlert) {
+                    Button(action: {self.showingAppNotificationsClearedAlert = true}) {
+                        Text("Done")
+                    }
+                }
+            }
+        }
+        .navigationTitle("Reminders")
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button(action: {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("Notifications Setup")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                    let content = UNMutableNotificationContent()
+                    content.title = appNotificationsTitleText
+                    content.body = appNotificationsBodyText
+                    content.sound = UNNotificationSound.default
+                    let timeInt = appNotificationsDueDateAndTime.timeIntervalSinceNow
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInt, repeats: false)
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request)
+                }) {
+                    Text("Add")
+                }
+                .disabled(disabledAppNotificationAdd)
+            }
+        }
+        .onChange(of: appNotificationsTitleText) { change in
+            if appNotificationsTitleText != "" {
+                disabledAppNotificationAdd = false
+            } else {
+                disabledAppNotificationAdd = true
+            }
+        }
+        #endif
     }
     
     //Add A New Member To The Members Database
