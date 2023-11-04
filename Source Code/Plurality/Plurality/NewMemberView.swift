@@ -118,7 +118,7 @@ struct NewMemberView: View {
                 .disabled(addNewAlterDisabled)
             }
         }
-        .onChange(of: avatarItem) { _ in
+        .onChange(of: avatarItem) {
             Task {
                 if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
                     if let nsImage = NSImage(data: data) {
@@ -136,7 +136,7 @@ struct NewMemberView: View {
                 addNewAlterDisabled = false
             }
         }
-        .onChange(of: newAlterName) { _ in
+        .onChange(of: newAlterName) {
             if newAlterName == "" {
                 addNewAlterDisabled = true
             } else {
