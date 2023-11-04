@@ -748,7 +748,7 @@ struct ContentView: View {
                 .disabled(addNewAlterDisabled)
             }
         }
-        .onChange(of: avatarItem) { _ in
+        .onChange(of: avatarItem) {
             Task {
                 if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
                     if let uiImage = UIImage(data: data) {
@@ -766,7 +766,7 @@ struct ContentView: View {
                 addNewAlterDisabled = false
             }
         }
-        .onChange(of: newAlterName) { _ in
+        .onChange(of: newAlterName) {
             if newAlterName == "" {
                 addNewAlterDisabled = true
             } else {
@@ -1100,7 +1100,7 @@ struct ContentView: View {
                 .disabled(disabledAppNotificationAdd)
             }
         }
-        .onChange(of: appNotificationsTitleText) { change in
+        .onChange(of: appNotificationsTitleText) {
             if appNotificationsTitleText != "" {
                 disabledAppNotificationAdd = false
             } else {
@@ -1168,7 +1168,7 @@ struct ContentView: View {
                 .disabled(disabledAppNotificationAdd)
             }
         }
-        .onChange(of: appNotificationsTitleText) { change in
+        .onChange(of: appNotificationsTitleText) {
             if appNotificationsTitleText != "" {
                 disabledAppNotificationAdd = false
             } else {

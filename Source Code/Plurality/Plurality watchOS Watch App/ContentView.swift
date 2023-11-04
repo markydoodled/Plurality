@@ -9,7 +9,8 @@ import SwiftUI
 import PhotosUI
 import CoreData
 import UserNotifications
-import WatchDatePicker
+//import WatchDatePicker
+import StoreKit
 
 struct ContentView: View {
     //Core Data Database Fetch
@@ -28,8 +29,10 @@ struct ContentView: View {
     
     //Custom Notification UI Storage
     @State var appNotificationsTitleText = ""
+    @State var appNotificationsBodyText = ""
     @State var appNotificationsDueDateAndTime = Date()
     @State var showingAppNotificationsClearedAlert = false
+    @State var disabledAppNotificationAdd = true
     
     //Add Alter UI Storage
     @State var newAlterName = ""
@@ -181,11 +184,11 @@ struct ContentView: View {
     //More Options View
     var more: some View {
         Form {
-            /*Section {
+            Section {
                 NavigationLink(destination: appNotifications) {
                     Label("App Notifications", systemImage: "app.badge")
                 }
-            }*/
+            }
             Section {
                 NavigationLink(destination: settings) {
                     Label("Settings", systemImage: "gearshape")
@@ -236,7 +239,73 @@ struct ContentView: View {
     
     //Custom App Notifications View
     var appNotifications: some View {
-        Text("App Notifications")
+        Form {
+            TextField(text: $appNotificationsTitleText, prompt: Text("Title...")) {
+                Text("Title...")
+            }
+            DatePicker(selection: $appNotificationsDueDateAndTime, displayedComponents: [.date, .hourAndMinute]) {
+                Text("Date And Time")
+            }
+            TextField(text: $appNotificationsBodyText, prompt: Text("Body...")) {
+                Text("Body...")
+            }
+            Section {
+                Button(action: {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("Notifications Setup")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }) {
+                    Text("Request Permissions")
+                }
+                Button(action: {
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    showingAppNotificationsClearedAlert = true
+                }) {
+                    Text("Clear Notifications")
+                }
+                .alert("Notifications Cleared", isPresented: $showingAppNotificationsClearedAlert) {
+                    Button(action: {self.showingAppNotificationsClearedAlert = true}) {
+                        Text("Done")
+                    }
+                }
+            }
+        }
+        .navigationTitle("Reminders")
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button(action: {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("Notifications Setup")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                    let content = UNMutableNotificationContent()
+                    content.title = appNotificationsTitleText
+                    content.body = appNotificationsBodyText
+                    content.sound = UNNotificationSound.default
+                    let timeInt = appNotificationsDueDateAndTime.timeIntervalSinceNow
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInt, repeats: false)
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request)
+                }) {
+                    Image(systemName: "checkmark")
+                }
+                .disabled(disabledAppNotificationAdd)
+            }
+        }
+        .onChange(of: appNotificationsTitleText) {
+            if appNotificationsTitleText != "" {
+                disabledAppNotificationAdd = false
+            } else {
+                disabledAppNotificationAdd = true
+            }
+        }
     }
     
     //UI To Add A New Member Data
@@ -343,7 +412,7 @@ struct ContentView: View {
                 .disabled(addNewAlterDisabled)
             }
         }
-        .onChange(of: avatarItem) { _ in
+        .onChange(of: avatarItem) {
             Task {
                 if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
                     if let uiImage = UIImage(data: data) {
@@ -361,7 +430,7 @@ struct ContentView: View {
                 addNewAlterDisabled = false
             }
         }
-        .onChange(of: newAlterName) { _ in
+        .onChange(of: newAlterName) {
             if newAlterName == "" {
                 addNewAlterDisabled = true
             } else {
