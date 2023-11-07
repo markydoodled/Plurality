@@ -876,6 +876,7 @@ struct ContentView: View {
                     avatarImage
                         .resizable()
                         .scaledToFit()
+                        .frame(width: 150, height: 150)
                 } else {
                     Text("No Avatar")
                 }
@@ -884,29 +885,39 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            LabeledContent("Name") {
+                            LabeledContent("Name:") {
                                 Text("\(alterDetailsName)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Age") {
+                            LabeledContent("Age:") {
                                 Text("\(alterDetailsAge)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Birthday") {
+                            LabeledContent("Birthday:") {
                                 Text("\(alterDetailsBirthday)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Description") {
+                            LabeledContent("Description:") {
                                 Text("\(alterDetailsDescription)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Role") {
+                            LabeledContent("Role:") {
                                 Text("\(alterDetailsRole)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
                         }
@@ -919,14 +930,18 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            LabeledContent("Likes") {
+                            LabeledContent("Likes:") {
                                 Text("\(alterDetailsLikes)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Dislikes") {
+                            LabeledContent("Dislikes:") {
                                 Text("\(alterDetailsDislikes)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
                         }
@@ -939,19 +954,25 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            LabeledContent("Gender") {
+                            LabeledContent("Gender:") {
                                 Text("\(alterDetailsGender)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Pronouns") {
+                            LabeledContent("Pronouns:") {
                                 Text("\(alterDetailsPronouns)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Sexuality") {
+                            LabeledContent("Sexuality:") {
                                 Text("\(alterDetailsSexuality)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
                         }
@@ -964,14 +985,18 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            LabeledContent("Favourite Food") {
+                            LabeledContent("Favourite Food:") {
                                 Text("\(alterDetailsFavouriteFood)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
-                            LabeledContent("Hobbies") {
+                            LabeledContent("Hobbies:") {
                                 Text("\(alterDetailsHobbies)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
                         }
@@ -984,9 +1009,11 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         VStack {
-                            LabeledContent("Notes") {
+                            LabeledContent("Notes:") {
                                 Text("\(alterDetailsNotes)")
                                     .textSelection(.enabled)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.secondary)
                                     .bold()
                             }
                         }
