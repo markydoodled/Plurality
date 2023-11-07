@@ -57,6 +57,7 @@ struct NewMemberView: View {
                             avatarImage
                                 .resizable()
                                 .scaledToFit()
+                                .frame(width: 150, height: 150)
                         }
                     } header: {
                         Label("Avatar", systemImage: "photo")
