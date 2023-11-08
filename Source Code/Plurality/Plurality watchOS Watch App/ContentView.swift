@@ -383,7 +383,7 @@ struct ContentView: View {
                     avatarImage = nil
                     showingNewAlter = false
                 }) {
-                    Text("Cancel")
+                    Image(systemName: "xmark")
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
@@ -407,7 +407,8 @@ struct ContentView: View {
                     avatarImage = nil
                     showingNewAlter = false
                 }) {
-                    Text("Done")
+                    Image(systemName: "checkmark")
+                        .foregroundColor(.accentColor)
                 }
                 .disabled(addNewAlterDisabled)
             }
