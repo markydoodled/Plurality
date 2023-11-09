@@ -1274,9 +1274,13 @@ struct ContentView: View {
                         Text("Exported Member")
                             .bold()
                             .font(.title)
-                        Image("\(alterDetailsAvatarImageData)")
-                            .resizable()
-                            .frame(width: 150, height: 150)
+                        if let avatarImage {
+                            avatarImage
+                                .resizable()
+                                .frame(width: 150, height: 150)
+                        } else {
+                            Text("No Avatar")
+                        }
                         LabeledContent("Member Name") {
                             Text("\(alterDetailsName)")
                                 .foregroundStyle(.secondary)
