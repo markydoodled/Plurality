@@ -13,7 +13,6 @@ import MessageUI
 #endif
 import LocalAuthentication
 import PhotosUI
-import StoreKit
 
 struct ContentView: View {
     //Core Data Database Fetch
@@ -1042,11 +1041,11 @@ struct ContentView: View {
             #endif
             #if os(iOS)
             ToolbarItem(placement: .navigationBarTrailing) {
-                ShareLink(item: URL(string: "/")!, subject: Text("Exported Member"), message: Text("Information About An Member"))
+                ShareLink(item: render(), subject: Text("Exported Member"), message: Text("Information About An Member"))
             }
             #else
             ToolbarItem(placement: .primaryAction) {
-                ShareLink(item: URL(string: "/")!, subject: Text("Exported Member"), message: Text("Information About An Member"))
+                ShareLink(item: render(), subject: Text("Exported Member"), message: Text("Information About An Member"))
             }
             #endif
             #if os(macOS)
@@ -1266,6 +1265,90 @@ struct ContentView: View {
             print("No Biometrics Avaliable")
         }
     }
+    
+    func render() -> URL {
+            let renderer = ImageRenderer(content:
+                VStack {
+                Spacer()
+                    Form {
+                        Text("Exported Member")
+                            .bold()
+                            .font(.title)
+                        Image("\(alterDetailsAvatarImageData)")
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                        LabeledContent("Member Name") {
+                            Text("\(alterDetailsName)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Age") {
+                            Text("\(alterDetailsAge)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Birthday") {
+                            Text("\(alterDetailsBirthday)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Description") {
+                            Text("\(alterDetailsDescription)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Role") {
+                            Text("\(alterDetailsRole)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Likes") {
+                            Text("\(alterDetailsLikes)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Dislikes") {
+                            Text("\(alterDetailsDislikes)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Gender") {
+                            Text("\(alterDetailsGender)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Pronouns") {
+                            Text("\(alterDetailsPronouns)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Sexuality") {
+                            Text("\(alterDetailsSexuality)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Favourite Food") {
+                            Text("\(alterDetailsFavouriteFood)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Hobbies") {
+                            Text("\(alterDetailsHobbies)")
+                                .foregroundStyle(.secondary)
+                        }
+                        LabeledContent("Notes") {
+                            Text("\(alterDetailsNotes)")
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
+                Spacer()
+                }
+                .padding()
+            )
+            let url = URL.documentsDirectory.appending(path: "Exported Member.pdf")
+            renderer.render { size, context in
+                var box = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+                guard let pdf = CGContext(url as CFURL, mediaBox: &box, nil) else {
+                    return
+                }
+                pdf.beginPDFPage(nil)
+                context(pdf)
+                pdf.endPDFPage()
+                pdf.closePDF()
+            }
+            return url
+        }
+    
     /*func handleIncomingURL(_ url: URL) {
             guard url.scheme == "plurality" else {
                 return
