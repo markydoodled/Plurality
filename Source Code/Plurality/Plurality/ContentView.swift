@@ -1518,7 +1518,10 @@ struct ContentView: View {
     
     //Edit Member Details
     private func editItem() {
-        
+        withAnimation {
+            let editItem = Alters(context: viewContext)
+            
+        }
     }
     
     //Delete Items From The Members Database
