@@ -535,6 +535,10 @@ struct ContentView: View {
         .privacySensitive()
     }
     
+    var editDetails: some View {
+        Text("Edit Details")
+    }
+    
     func render() -> URL {
             let renderer = ImageRenderer(content:
                 VStack {

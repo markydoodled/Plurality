@@ -38,6 +38,8 @@ struct ContentView: View {
     @State var searchHistoryText = ""
     //@State var openedViewName: String?
     @State var isMembersGroupExpanded = true
+    @State var showingEditDetails = false
+    @State var addEditAlterDisabled = true
     
     //Custom Notification UI Storage
     @State var appNotificationsTitleText = ""
@@ -61,6 +63,22 @@ struct ContentView: View {
     @State var newAlterHobbies = ""
     @State var newAlterNotes = ""
     @State var newAlterAvatarImageData = Data()
+    
+    //Edit Alter UI Storage
+    @State var editAlterName = ""
+    @State var editAlterAge = Int64(1)
+    @State var editAlterBirthday = Date()
+    @State var editAlterDescription = ""
+    @State var editAlterRole = ""
+    @State var editAlterLikes = ""
+    @State var editAlterDislikes = ""
+    @State var editAlterGender = ""
+    @State var editAlterPronouns = ""
+    @State var editAlterSexuality = ""
+    @State var editAlterFavouriteFood = ""
+    @State var editAlterHobbies = ""
+    @State var editAlterNotes = ""
+    @State var editAlterAvatarImageData = Data()
     
     //Alter Image Storage
     @State var avatarItem: PhotosPickerItem?
@@ -868,6 +886,36 @@ struct ContentView: View {
             }
         }
         .navigationTitle("\(alterDetailsName)")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {self.showingEditDetails = true}) {
+                    Image(systemName: "slider.horizontal.3")
+                }
+                .sheet(isPresented: $showingEditDetails) {
+                    NavigationStack {
+                        editDetails
+                            .onAppear() {
+                                editAlterName = alterDetailsName
+                                editAlterAge = alterDetailsAge
+                                //editAlterBirthday = try! Date(alterDetailsBirthday, strategy: .dateTime)
+                                editAlterDescription = alterDetailsDescription
+                                editAlterRole = alterDetailsRole
+                                editAlterLikes = alterDetailsLikes
+                                editAlterDislikes = alterDetailsDislikes
+                                editAlterGender = alterDetailsGender
+                                editAlterPronouns = alterDetailsPronouns
+                                editAlterSexuality = alterDetailsSexuality
+                                editAlterFavouriteFood = alterDetailsFavouriteFood
+                                editAlterHobbies = alterDetailsHobbies
+                                editAlterNotes = alterDetailsNotes
+                            }
+                    }
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ShareLink(item: render(), subject: Text("Exported Member"), message: Text("Information About A Member"))
+            }
+        }
         #else
         ScrollView {
             VStack {
@@ -1026,35 +1074,38 @@ struct ContentView: View {
         }
         .navigationTitle("\(alterDetailsName)")
         .toolbar {
-            #if os(iOS)
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {}) {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {self.showingEditDetails = true}) {
                     Image(systemName: "slider.horizontal.3")
                 }
-            }
-            #else
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: {}) {
-                    Image(systemName: "slider.horizontal.3")
+                .sheet(isPresented: $showingEditDetails) {
+                    editDetails
+                        .onAppear() {
+                            editAlterName = alterDetailsName
+                            editAlterAge = alterDetailsAge
+                            //editAlterBirthday = try! Date(alterDetailsBirthday, strategy: .dateTime)
+                            editAlterDescription = alterDetailsDescription
+                            editAlterRole = alterDetailsRole
+                            editAlterLikes = alterDetailsLikes
+                            editAlterDislikes = alterDetailsDislikes
+                            editAlterGender = alterDetailsGender
+                            editAlterPronouns = alterDetailsPronouns
+                            editAlterSexuality = alterDetailsSexuality
+                            editAlterFavouriteFood = alterDetailsFavouriteFood
+                            editAlterHobbies = alterDetailsHobbies
+                            editAlterNotes = alterDetailsNotes
+                        }
+                        .frame(width: 500)
                 }
             }
-            #endif
-            #if os(iOS)
-            ToolbarItem(placement: .navigationBarTrailing) {
-                ShareLink(item: render(), subject: Text("Exported Member"), message: Text("Information About An Member"))
-            }
-            #else
             ToolbarItem(placement: .primaryAction) {
-                ShareLink(item: render(), subject: Text("Exported Member"), message: Text("Information About An Member"))
+                ShareLink(item: render(), subject: Text("Exported Member"), message: Text("Information About A Member"))
             }
-            #endif
-            #if os(macOS)
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {openWindow(id: "new-member")}) {
                     Label("New Member", systemImage: "plus")
                 }
             }
-            #endif
         }
         #endif
     }
@@ -1204,6 +1255,239 @@ struct ContentView: View {
         #endif
     }
     
+    var editDetails: some View {
+    #if os(iOS)
+        Form {
+            Group {
+                Section {
+                    TextField("Name...", text: $editAlterName)
+                    Stepper("Age - \(editAlterAge)", value: $editAlterAge, in: 1...1000)
+                    DatePicker("Birthday", selection: $editAlterBirthday, displayedComponents: [.date])
+                    TextField("Description...", text: $editAlterDescription, axis: .vertical)
+                    TextField("Role...", text: $editAlterRole)
+                } header: {
+                    Label("Basic Info", systemImage: "info.circle")
+                }
+                Section {
+                    PhotosPicker("Select Avatar...", selection: $avatarItem, matching: .images)
+                    if let avatarImage {
+                        avatarImage
+                            .resizable()
+                            .scaledToFit()
+                    }
+                } header: {
+                    Label("Avatar", systemImage: "photo")
+                }
+                Section {
+                    TextField("Likes...", text: $editAlterLikes, axis: .vertical)
+                    TextField("Dislikes...", text: $editAlterDislikes, axis: .vertical)
+                } header: {
+                    Label("Likes And Dislikes", systemImage: "hand.thumbsup")
+                }
+                Section {
+                    TextField("Gender...", text: $editAlterGender)
+                    TextField("Pronouns...", text: $editAlterPronouns)
+                    TextField("Sexuality...", text: $editAlterSexuality)
+                } header: {
+                    Label("Identity", systemImage: "figure.dress.line.vertical.figure")
+                }
+            }
+            Group {
+                Section {
+                    TextField("Favourite Food...", text: $editAlterFavouriteFood, axis: .vertical)
+                    TextField("Hobbies...", text: $editAlterHobbies, axis: .vertical)
+                } header: {
+                    Label("Activites", systemImage: "tennisball")
+                }
+                Section {
+                    TextField("Notes...", text: $editAlterNotes, axis: .vertical)
+                } header: {
+                    Label("Other", systemImage: "ellipsis.circle")
+                }
+            }
+        }
+        .navigationTitle("Edit Member")
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    editAlterName = ""
+                    editAlterAge = Int64(1)
+                    editAlterBirthday = Date()
+                    editAlterDescription = ""
+                    editAlterRole = ""
+                    editAlterLikes = ""
+                    editAlterDislikes = ""
+                    editAlterGender = ""
+                    editAlterPronouns = ""
+                    editAlterSexuality = ""
+                    editAlterFavouriteFood = ""
+                    editAlterHobbies = ""
+                    editAlterNotes = ""
+                    editAlterAvatarImageData = Data()
+                    avatarItem = nil
+                    avatarImage = nil
+                    showingEditDetails = false
+                }) {
+                    Text("Cancel")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    editItem()
+                    editAlterName = ""
+                    editAlterAge = Int64(1)
+                    editAlterBirthday = Date()
+                    editAlterDescription = ""
+                    editAlterRole = ""
+                    editAlterLikes = ""
+                    editAlterDislikes = ""
+                    editAlterGender = ""
+                    editAlterPronouns = ""
+                    editAlterSexuality = ""
+                    editAlterFavouriteFood = ""
+                    editAlterHobbies = ""
+                    editAlterNotes = ""
+                    editAlterAvatarImageData = Data()
+                    avatarItem = nil
+                    avatarImage = nil
+                    showingEditDetails = false
+                }) {
+                    Text("Save")
+                }
+                .disabled(addEditAlterDisabled)
+            }
+        }
+        .onChange(of: avatarItem) {
+            Task {
+                if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
+                    if let uiImage = UIImage(data: data) {
+                        avatarImage = Image(uiImage: uiImage)
+                        return
+                    }
+                }
+                print("Failed")
+            }
+        }
+        .onAppear() {
+            if newAlterName == "" {
+                addNewAlterDisabled = true
+            } else {
+                addNewAlterDisabled = false
+            }
+        }
+        .onChange(of: newAlterName) {
+            if newAlterName == "" {
+                addNewAlterDisabled = true
+            } else {
+                addNewAlterDisabled = false
+            }
+        }
+    #else
+        VStack {
+            Form {
+                Group {
+                    Section {
+                        TextField("Name...", text: $editAlterName)
+                        Stepper("Age - \(editAlterAge)", value: $editAlterAge, in: 1...1000)
+                        DatePicker("Birthday", selection: $editAlterBirthday, displayedComponents: [.date])
+                        TextField("Description...", text: $editAlterDescription, axis: .vertical)
+                        TextField("Role...", text: $editAlterRole)
+                    } header: {
+                        Label("Basic Info", systemImage: "info.circle")
+                    }
+                    Section {
+                        PhotosPicker("Select Avatar...", selection: $avatarItem, matching: .images)
+                        if let avatarImage {
+                            avatarImage
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150, height: 150)
+                        }
+                    } header: {
+                        Label("Avatar", systemImage: "photo")
+                    }
+                    Section {
+                        TextField("Likes...", text: $editAlterLikes, axis: .vertical)
+                        TextField("Dislikes...", text: $editAlterDislikes, axis: .vertical)
+                    } header: {
+                        Label("Likes And Dislikes", systemImage: "hand.thumbsup")
+                    }
+                    Section {
+                        TextField("Gender...", text: $editAlterGender)
+                        TextField("Pronouns...", text: $editAlterPronouns)
+                        TextField("Sexuality...", text: $editAlterSexuality)
+                    } header: {
+                        Label("Identity", systemImage: "figure.dress.line.vertical.figure")
+                    }
+                }
+                Group {
+                    Section {
+                        TextField("Favourite Food...", text: $editAlterFavouriteFood, axis: .vertical)
+                        TextField("Hobbies...", text: $editAlterHobbies, axis: .vertical)
+                    } header: {
+                        Label("Activites", systemImage: "tennisball")
+                    }
+                    Section {
+                        TextField("Notes...", text: $editAlterNotes, axis: .vertical)
+                    } header: {
+                        Label("Other", systemImage: "ellipsis.circle")
+                    }
+                }
+            }
+            HStack {
+                Spacer()
+                Button(action: {
+                    editAlterName = ""
+                    editAlterAge = Int64(1)
+                    editAlterBirthday = Date()
+                    editAlterDescription = ""
+                    editAlterRole = ""
+                    editAlterLikes = ""
+                    editAlterDislikes = ""
+                    editAlterGender = ""
+                    editAlterPronouns = ""
+                    editAlterSexuality = ""
+                    editAlterFavouriteFood = ""
+                    editAlterHobbies = ""
+                    editAlterNotes = ""
+                    editAlterAvatarImageData = Data()
+                    avatarItem = nil
+                    avatarImage = nil
+                    showingEditDetails = false
+                }) {
+                    Text("Cancel")
+                }
+                Spacer()
+                Button(action: {
+                    editItem()
+                    editAlterName = ""
+                    editAlterAge = Int64(1)
+                    editAlterBirthday = Date()
+                    editAlterDescription = ""
+                    editAlterRole = ""
+                    editAlterLikes = ""
+                    editAlterDislikes = ""
+                    editAlterGender = ""
+                    editAlterPronouns = ""
+                    editAlterSexuality = ""
+                    editAlterFavouriteFood = ""
+                    editAlterHobbies = ""
+                    editAlterNotes = ""
+                    editAlterAvatarImageData = Data()
+                    avatarItem = nil
+                    avatarImage = nil
+                    showingEditDetails = false
+                }) {
+                    Text("Save")
+                }
+                .buttonStyle(.borderedProminent)
+                Spacer()
+            }
+        }
+        .padding()
+    #endif
+    }
+    
     //Add A New Member To The Members Database
     private func addItem() {
         withAnimation {
@@ -1230,6 +1514,11 @@ struct ContentView: View {
                 fatalError("Unresolved Error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+    
+    //Edit Member Details
+    private func editItem() {
+        
     }
     
     //Delete Items From The Members Database
