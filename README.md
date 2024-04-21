@@ -1,10 +1,15 @@
 # Plurality
 
-An App, For Apple Devices, To Help People With A Dissociative Disorder Or Multiple Personalites Keep Track Of Things, Alters And Events In Their Life.
+An App To Help People With A Dissociative Disorder Or Multiple Personalites Keep Track Of Things, Alters And Events In Their Life.
+
+## App Store Link
+
+[Click Here...]()
 
 ## Features
 
-- iOS/iPadOS App
+- iOS
+- iPadOS App
 - watchOS App
 - macOS App
 - Siri Shortcuts
