@@ -1459,7 +1459,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 Button(action: {
-                    editItem()
+                    editItem(id: UUID(), newName: editAlterName)
                     editAlterName = ""
                     editAlterAge = Int64(1)
                     editAlterBirthday = Date()
@@ -1516,14 +1516,45 @@ struct ContentView: View {
         }
     }
     
-    //Edit Member Details
-    private func editItem() {
-        withAnimation {
-            let editItem = Alters(context: viewContext)
-            
+    //Edit Member Details In The Core Data Store
+    /*private func editItem() {
+        let editData = Alters(context: self.viewContext)
+        editData.id = UUID()
+        editData.name = editAlterName
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved Error \(nsError), \(nsError.userInfo)")
         }
+    }*/
+
+    private func editItem(id: UUID, newName: String) {
+    let fetchRequest: NSFetchRequest<Alters> = Alters.fetchRequest()
+    fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+    print("Fetch")
+    do {
+        let items = try viewContext.fetch(fetchRequest)
+        print("Fetch 2")
+        do {
+            let items = try viewContext.fetch(fetchRequest)
+            if items.isEmpty {
+                print("No items found")
+            } else if let item = items.first {
+                print("Fetch 3")
+                item.name = newName
+                try viewContext.save()
+                print("Saved")
+            }
+        } catch {
+            print("Failed to fetch items: \(error)")
+        }
+    } catch {
+        let nsError = error as NSError
+        fatalError("Unresolved Error \(nsError), \(nsError.userInfo)")
     }
-    
+}
+
     //Delete Items From The Members Database
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
@@ -1644,28 +1675,6 @@ struct ContentView: View {
             }
             return url
         }
-    
-    /*func handleIncomingURL(_ url: URL) {
-            guard url.scheme == "plurality" else {
-                return
-            }
-            guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-                print("Invalid URL")
-                return
-            }
-
-            guard let action = components.host, action == "open-add-alter" else {
-                print("Unknown URL")
-                return
-            }
-
-            guard let viewName = components.queryItems?.first(where: { $0.name == "name" })?.value else {
-                print("View Name Not Found")
-                return
-            }
-
-            openedViewName = viewName
-        }*/
 }
 
 struct ContentView_Previews: PreviewProvider {

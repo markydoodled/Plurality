@@ -703,7 +703,9 @@ struct ContentView: View {
     }
     
     private func editItem() {
-        
+        withAnimation {
+            let editItem = Alters(context: viewContext)
+        }
     }
     
     func render() -> URL {
